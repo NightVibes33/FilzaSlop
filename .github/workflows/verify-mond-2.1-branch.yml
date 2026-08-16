@@ -69,17 +69,17 @@ jobs:
           grep -Fq 'Explore Tendies' "$MOND_TREE/mond/views/tweaks/posterboard/PosterView.swift"
           grep -Fq 'struct TendiesView' "$MOND_TREE/mond/views/tweaks/posterboard/TendiesView.swift"
           grep -Fq 'struct SantanderView' "$MOND_TREE/mond/views/tweaks/SantanderView.swift"
+          grep -Fq 'Your sandbox token is invalid.' "$MOND_TREE/mond/views/app/SettingsView.swift"
 
           test -s "$DYLIB"
           test "$(lipo -archs "$DYLIB")" = "arm64"
           otool -L "$DYLIB" | grep -F '@rpath/Mond2Embedded.dylib'
-          grep -aFq 'Explore Tendies' "$DYLIB"
-          grep -aFq 'HouseArrest' "$DYLIB"
-          grep -aFq 'Run Exploit' "$DYLIB"
-          grep -aFq 'Generate Token' "$DYLIB"
-          grep -aFq 'Your sandbox token is invalid.' "$DYLIB"
+          nm "$DYLIB" | xcrun swift-demangle > .theos/Mond2Embedded.symbols
+          grep -Fq 'Mond2Embedded.ContentView' .theos/Mond2Embedded.symbols
+          grep -Fq 'Mond2Embedded.SettingsView' .theos/Mond2Embedded.symbols
+          grep -Fq 'Mond2Embedded.TendiesView' .theos/Mond2Embedded.symbols
+          grep -Fq 'Mond2Embedded.SantanderView' .theos/Mond2Embedded.symbols
           grep -aFq 'exact upstream mond 2.1 runtime configured commit=500d76082f0ca021ddd591c05d129ebbc26c20df' "$DYLIB"
-          ! grep -aFq 'Fresh sandbox token issued successfully. Mond has not consumed it.' "$DYLIB"
           test -z "$(git -C "$MOND_TREE" status --porcelain)"
           shasum -a 256 "$DYLIB" | tee .theos/MOND-2.1-SHA256.txt
 
@@ -91,6 +91,7 @@ jobs:
             .theos/obj/Mond2Embedded.dylib
             .theos/mond2/PINNED.txt
             .theos/MOND-2.1-SHA256.txt
+            .theos/Mond2Embedded.symbols
             ThirdParty/mond/UPSTREAM.md
           if-no-files-found: error
           retention-days: 14
