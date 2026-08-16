@@ -52,7 +52,9 @@ done
 test -d "$PARTYUI/Sources/PartyUI"
 test -d "$ZIPFOUNDATION/Sources/ZIPFoundation"
 
-grep -Fq 'MARKETING_VERSION = 2.1;' "$MOND/mond.xcodeproj/project.pbxproj"
+# Upstream's 2.1 release commit intentionally/actually still contains
+# MARKETING_VERSION = 2.0 in the Xcode project. Verify it; do not rewrite it.
+grep -Fq 'MARKETING_VERSION = 2.0;' "$MOND/mond.xcodeproj/project.pbxproj"
 grep -Fq 'PRODUCT_BUNDLE_IDENTIFIER = com.roooot.mond;' "$MOND/mond.xcodeproj/project.pbxproj"
 grep -Fq 'Explore Tendies' "$MOND/mond/views/tweaks/posterboard/PosterView.swift"
 grep -Fq 'struct TendiesView' "$MOND/mond/views/tweaks/posterboard/TendiesView.swift"
