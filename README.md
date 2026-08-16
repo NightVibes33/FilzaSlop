@@ -2,9 +2,9 @@
 
 # ✦ 𖤐 FILZA 27 𖤐 ✦
 
-### `GHOST TYPE FILE MANAGER`
+### `MODERN iOS FILE MANAGER`
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=20&duration=1800&pause=500&color=A855F7&center=true&vCenter=true&repeat=true&width=900&lines=FILE+BROWSER+%2F%2F+GHOST+MODE;BROWSE+%E2%80%A2+INSPECT+%E2%80%A2+MANAGE+%E2%80%A2+ARCHIVE;SIDELOADABLE+ARM64+FILZA;MODERN+iOS+FILESYSTEM+TOOLS" alt="Filza 27 typing animation" />
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=20&duration=1750&pause=520&color=A855F7&center=true&vCenter=true&repeat=true&width=940&lines=FILZA+27+%2F%2F+MODERN+iOS;BROWSE+%E2%80%A2+INSPECT+%E2%80%A2+MANAGE+%E2%80%A2+ARCHIVE;SIDELOADABLE+ARM64+FILE+MANAGER;REAL+FILES+%E2%80%A2+REAL+CONTAINERS+%E2%80%A2+REAL+TOOLS" alt="Filza 27 typing animation" />
 
 <br />
 
@@ -14,24 +14,25 @@
 <tr>
 <td align="center" width="50%">
 <a href="https://giphy.com/gifs/pokemon-approaching-mega-gengar-phantasmal-flames-2Xk7V7X97R5gmfUTqx">
-<img src="https://media.giphy.com/media/2Xk7V7X97R5gmfUTqx/giphy.gif" width="100%" alt="Official Pokemon Mega Gengar animation" />
+<img src="https://media.giphy.com/media/2Xk7V7X97R5gmfUTqx/giphy.gif" width="100%" alt="Pokémon Mega Gengar animation" />
 </a>
 </td>
 <td align="center" width="50%">
-<a href="https://giphy.com/gifs/pokemon-oKXaUOOwStqnDddLnA">
-<img src="https://media.giphy.com/media/oKXaUOOwStqnDddLnA/giphy.gif" width="100%" alt="Official Pokemon Gengar animation" />
+<a href="https://giphy.com/gifs/neon-vaporwave-retrowave-QTxF50wnvVaXDU3IJQ">
+<img src="https://media.giphy.com/media/QTxF50wnvVaXDU3IJQ/giphy.gif" width="100%" alt="Neon city loop by dualvoidanima" />
 </a>
 </td>
 </tr>
 </table>
 
-<sub>✦ ghost type energy · purple everything · Filza first ✦</sub>
+<sub>✦ Pokémon · neon · glitch · iOS · Filza ✦</sub>
 
 <br /><br />
 
 [![Verified IPA](https://img.shields.io/github/actions/workflow/status/NightVibes33/Filza-27/verify-upstream-byetunes-ssh.yml?branch=main&style=for-the-badge&label=VERIFIED%20IPA&logo=githubactions&logoColor=white&labelColor=09090b&color=7C3AED)](https://github.com/NightVibes33/Filza-27/actions/workflows/verify-upstream-byetunes-ssh.yml)
 [![Latest Release](https://img.shields.io/github/v/release/NightVibes33/Filza-27?display_name=tag&style=for-the-badge&label=LATEST&labelColor=09090b&color=9333EA)](https://github.com/NightVibes33/Filza-27/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/NightVibes33/Filza-27/total?style=for-the-badge&label=DOWNLOADS&labelColor=09090b&color=A855F7)](https://github.com/NightVibes33/Filza-27/releases)
+[![Stars](https://img.shields.io/github/stars/NightVibes33/Filza-27?style=for-the-badge&label=STARS&labelColor=09090b&color=7E22CE)](https://github.com/NightVibes33/Filza-27/stargazers)
 
 <br />
 
@@ -55,15 +56,13 @@
 
 ## ✦ 𖤐 FILZA CORE 𖤐 ✦
 
-Filza 27 is built around the **file manager itself**. Everything else stays secondary.
+Filza 27 is built around the **file manager itself**. The visual style can be loud; the product stays simple.
 
 <table>
 <tr>
 <td width="50%" valign="top">
 
 ### ◈ Browse
-
-Navigate files and directories the process can actually reach, with real directory listings instead of fake success states.
 
 - filesystem browsing
 - reachable app data containers
@@ -76,8 +75,6 @@ Navigate files and directories the process can actually reach, with real directo
 
 ### ✦ Manage
 
-Use Filza as a working file manager rather than a read-only viewer.
-
 - create / rename / delete
 - import / replace
 - ZIP create / extract
@@ -89,21 +86,15 @@ Use Filza as a working file manager rather than a read-only viewer.
 </tr>
 </table>
 
-<div align="center">
-
-`✦────────────── 𖤐 FILESYSTEM // ONLINE 𖤐 ──────────────✦`
-
-</div>
-
 ---
 
-## ✦ ↓ CATCH THE LATEST BUILD ✦
-
 <div align="center">
+
+## ✦ 𖤐 DOWNLOAD 𖤐 ✦
 
 # [`Filza-27.ipa`](https://github.com/NightVibes33/Filza-27/releases/latest/download/Filza-27.ipa)
 
-### `LATEST VERIFIED ARM64 PACKAGE`
+`latest verified arm64 package`
 
 Every public IPA is released only after the verifier succeeds for the **same commit SHA**.
 
@@ -116,34 +107,18 @@ Every public IPA is released only after the verifier succeeds for the **same com
 
 ---
 
-## ✦ 𖤐 GHOST MODE 𖤐 ✦
+## ✦ 𖤐 VISUAL BREAK 𖤐 ✦
 
 <table>
 <tr>
-<td width="48%" valign="top">
-
-### `FILZA // READY`
-
-```text
-╭──────────────────────────────╮
-│ FILE BROWSER ...... READY    │
-│ APP CONTAINERS .... READY    │
-│ FILE OPERATIONS ... READY    │
-│ ARCHIVES .......... READY    │
-│ PREVIEW ........... READY    │
-│ ARCH .............. ARM64    │
-│ PACKAGE ........... IPA      │
-╰──────────────────────────────╯
-```
-
-`TYPE:` **GHOST**  
-`ACCENT:` **PURPLE**  
-`MAIN CHARACTER:` **FILZA**
-
-</td>
-<td width="52%" align="center" valign="middle">
+<td width="50%" align="center">
 <a href="https://giphy.com/gifs/pokemon-gengar-mimikyu-pokemon-tcg-9CtPkMaR4Yp3NQOZ6u">
-<img src="https://media.giphy.com/media/9CtPkMaR4Yp3NQOZ6u/giphy.gif" width="100%" alt="Official Pokemon Gengar and Mimikyu animation" />
+<img src="https://media.giphy.com/media/9CtPkMaR4Yp3NQOZ6u/giphy.gif" width="100%" alt="Pokémon Gengar and Mimikyu animation" />
+</a>
+</td>
+<td width="50%" align="center">
+<a href="https://giphy.com/gifs/perfectloop-windows-98-perfectl00p-RbhFAzFEID8Ffrtxyz">
+<img src="https://media.giphy.com/media/RbhFAzFEID8Ffrtxyz/giphy.gif" width="100%" alt="Glitch loop by PERFECTL00P" />
 </a>
 </td>
 </tr>
@@ -151,15 +126,26 @@ Every public IPA is released only after the verifier succeeds for the **same com
 
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=15&duration=1650&pause=500&color=8B5CF6&center=true&vCenter=true&repeat=true&width=850&lines=%5Bfilza%5D+opening+filesystem...;%5Bghost%5D+checking+reachable+containers...;%5Bfiles%5D+ready+to+browse...;%5Brelease%5D+exact-SHA+verified..." alt="Filza ghost mode typing animation" />
-
-`✦──────────────────── 𖤐 ────────────────────✦`
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=16&duration=1500&pause=430&color=8B5CF6&center=true&vCenter=true&repeat=true&width=900&lines=%5Bfilza%5D+opening+filesystem...;%5Bfiles%5D+browse+%2F+inspect+%2F+manage...;%5Bpackage%5D+Filza-27.ipa;%5Bverify%5D+exact-SHA+release+gate" alt="Filza status animation" />
 
 </div>
 
 ---
 
-## ✦ COMPATIBILITY ✦
+## ✦ 𖤐 LIVE REPO 𖤐 ✦
+
+<div align="center">
+
+[![Views](https://hits.sh/github.com/NightVibes33/Filza-27.svg?style=for-the-badge&label=VIEWS&color=6D28D9&labelColor=09090b)](https://hits.sh/github.com/NightVibes33/Filza-27/)
+[![Forks](https://img.shields.io/github/forks/NightVibes33/Filza-27?style=for-the-badge&label=FORKS&labelColor=09090b&color=581C87)](https://github.com/NightVibes33/Filza-27/forks)
+[![Updated](https://img.shields.io/github/last-commit/NightVibes33/Filza-27?style=for-the-badge&label=UPDATED&labelColor=09090b&color=4C1D95)](https://github.com/NightVibes33/Filza-27/commits/main)
+[![Size](https://img.shields.io/github/repo-size/NightVibes33/Filza-27?style=for-the-badge&label=SIZE&labelColor=09090b&color=312E81)](https://github.com/NightVibes33/Filza-27)
+
+</div>
+
+---
+
+## ✦ 𖤐 COMPATIBILITY 𖤐 ✦
 
 <div align="center">
 
@@ -176,7 +162,7 @@ Actual access varies by device and build, so Filza 27 validates real file and di
 
 ---
 
-## ✦ INSTALL ✦
+## ✦ 𖤐 INSTALL 𖤐 ✦
 
 1. Download [`Filza-27.ipa`](https://github.com/NightVibes33/Filza-27/releases/latest/download/Filza-27.ipa).
 2. Sideload it with your preferred signing method.
@@ -195,7 +181,7 @@ Changing the bundle identifier can break MobileHouseArrest-dependent behavior.
 
 <br />
 
-Filza 27 also contains additional tools, but they stay secondary to the file manager itself:
+Secondary integrations live here instead of taking over the README:
 
 - **Apps Manager / 3105** — app inspection and `.3105` patch workspaces
 - **Mond 2.1** — MobileGestalt, PosterBoard/Tendies and HouseArrest/Santander routes
@@ -209,7 +195,7 @@ See [`RELEASE_NOTES.md`](RELEASE_NOTES.md) for the detailed current integration 
 </details>
 
 <details>
-<summary><b>✦ Technical / build details ✦</b></summary>
+<summary><b>✦ 𖤐 Technical / build details 𖤐 ✦</b></summary>
 
 <br />
 
@@ -225,9 +211,7 @@ Release publisher:
 .github/workflows/publish-green-ipa-release.yml
 ```
 
-The release pipeline validates pinned dependencies, builds the arm64 runtime, packages the anchored Filza base IPA, verifies the artifact, calculates SHA-256, and publishes the exact verified package.
-
-Runtime logs are stored under:
+Runtime logs:
 
 ```text
 Documents/FilzaSlop Logs/
@@ -236,7 +220,7 @@ Documents/FilzaSlop Logs/
 </details>
 
 <details>
-<summary><b>✦ Current limitations ✦</b></summary>
+<summary><b>✦ 𖤐 Current limitations 𖤐 ✦</b></summary>
 
 <br />
 
@@ -254,18 +238,12 @@ Documents/FilzaSlop Logs/
 
 <div align="center">
 
-[FilzaJailedDS](https://github.com/34306/FilzaJailedDS) · [FilzaSlop](https://github.com/0xjohnnydev/FilzaSlop) · [MobileHouseArrest-PoC](https://github.com/0xjohnnydev/MobileHouseArrest-PoC) · [bad_query](https://github.com/forcequitOS/bad_query) · [mond](https://github.com/rooootdev/mond) · [3105](https://github.com/NightVibes33/3105) · [ByeTunes](https://github.com/EduAlexxis/ByeTunes)
+[FilzaJailedDS](https://github.com/34306/FilzaJailedDS) · [FilzaSlop](https://github.com/0xjohnnydev/FilzaSlop) · [MobileHouseArrest-PoC](https://github.com/0xjohnnydev/MobileHouseArrest-PoC) · [bad_query](https://github.com/forcequitOS/bad_query) · [mond](https://github.com/rooootdev/mond) · [3105](https://github.com/YangJiiii/3105) · [ByeTunes](https://github.com/EduAlexxis/ByeTunes)
 
 <br />
 
-<a href="https://giphy.com/gifs/pokemon-oKXaUOOwStqnDddLnA">
-<img src="https://media.giphy.com/media/oKXaUOOwStqnDddLnA/giphy.gif" width="260" alt="Official Pokemon Gengar animation" />
-</a>
+**✦ 𖤐 FILZA 27 𖤐 ✦**
 
-<br />
-
-# ✦ 𖤐 FILZA 27 // GHOST MODE 𖤐 ✦
-
-<sub>modern iOS file browsing with way too much Gengar energy 👻</sub>
+<sub>modern iOS file browsing with an unnecessarily customized README.</sub>
 
 </div>
