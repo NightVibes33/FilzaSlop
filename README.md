@@ -8,7 +8,7 @@
 
 <br />
 
-`✦────────────────────── 𖤐 ──────────────────────✦`
+`────────────────────────────────────────────`
 
 <table>
 <tr>
@@ -25,7 +25,7 @@
 </tr>
 </table>
 
-<sub>✦ Pokémon · neon · glitch · iOS · Filza ✦</sub>
+<sub>Pokémon · neon · glitch · iOS · Filza</sub>
 
 <br /><br />
 
@@ -48,13 +48,17 @@
 
 <br />
 
-`𖤐 BROWSE  ·  INSPECT  ·  MANAGE  ·  ARCHIVE 𖤐`
+`BROWSE  ·  INSPECT  ·  MANAGE  ·  ARCHIVE`
+
+<br />
+
+[**Download**](#download) · [**Filza Core**](#filza-core) · [**Scene**](#scene) · [**Compatibility**](#compatibility) · [**Install**](#install)
 
 </div>
 
 ---
 
-## ✦ 𖤐 FILZA CORE 𖤐 ✦
+## Filza Core
 
 Filza 27 is built around the **file manager itself**. The visual style can be loud; the product stays simple.
 
@@ -90,7 +94,7 @@ Filza 27 is built around the **file manager itself**. The visual style can be lo
 
 <div align="center">
 
-## ✦ 𖤐 DOWNLOAD 𖤐 ✦
+## Download
 
 # [`Filza-27.ipa`](https://github.com/NightVibes33/Filza-27/releases/latest/download/Filza-27.ipa)
 
@@ -107,7 +111,7 @@ Every public IPA is released only after the verifier succeeds for the **same com
 
 ---
 
-## ✦ 𖤐 VISUAL BREAK 𖤐 ✦
+## Scene
 
 <table>
 <tr>
@@ -132,7 +136,7 @@ Every public IPA is released only after the verifier succeeds for the **same com
 
 ---
 
-## ✦ 𖤐 LIVE REPO 𖤐 ✦
+## Live Repo
 
 <div align="center">
 
@@ -145,7 +149,7 @@ Every public IPA is released only after the verifier succeeds for the **same com
 
 ---
 
-## ✦ 𖤐 COMPATIBILITY 𖤐 ✦
+## Compatibility
 
 <div align="center">
 
@@ -162,7 +166,7 @@ Actual access varies by device and build, so Filza 27 validates real file and di
 
 ---
 
-## ✦ 𖤐 INSTALL 𖤐 ✦
+## Install
 
 1. Download [`Filza-27.ipa`](https://github.com/NightVibes33/Filza-27/releases/latest/download/Filza-27.ipa).
 2. Sideload it with your preferred signing method.
@@ -177,7 +181,7 @@ Changing the bundle identifier can break MobileHouseArrest-dependent behavior.
 ---
 
 <details>
-<summary><b>✦ 𖤐 Integrated extras 𖤐 ✦</b></summary>
+<summary><b>Integrated extras</b></summary>
 
 <br />
 
@@ -195,7 +199,7 @@ See [`RELEASE_NOTES.md`](RELEASE_NOTES.md) for the detailed current integration 
 </details>
 
 <details>
-<summary><b>✦ 𖤐 Technical / build details 𖤐 ✦</b></summary>
+<summary><b>Technical / build details</b></summary>
 
 <br />
 
@@ -220,7 +224,7 @@ Documents/FilzaSlop Logs/
 </details>
 
 <details>
-<summary><b>✦ 𖤐 Current limitations 𖤐 ✦</b></summary>
+<summary><b>Current limitations</b></summary>
 
 <br />
 
@@ -234,7 +238,7 @@ Documents/FilzaSlop Logs/
 
 ---
 
-## ✦ 𖤐 CREDITS 𖤐 ✦
+## Credits
 
 <div align="center">
 
