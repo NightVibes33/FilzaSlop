@@ -94,7 +94,7 @@ xcrun swiftc "${COMMON_SWIFT[@]}" \
     -framework AVKit \
     -framework AVFoundation \
     -framework ImageIO \
-    -framework Compression \
+    -lcompression \
     -lz \
     -Xlinker -install_name \
     -Xlinker @rpath/Mond2Embedded.dylib \
