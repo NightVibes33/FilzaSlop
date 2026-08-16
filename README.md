@@ -1,26 +1,43 @@
 <div align="center">
 
-# FILZA 27
+# 𖤐 FILZA 27 𖤐
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=19&duration=2100&pause=650&color=A855F7&center=true&vCenter=true&repeat=true&width=860&lines=Filza+%E2%80%A2+Mond+2.1+%E2%80%A2+ByeTunes+%E2%80%A2+3105;WebDAV+%E2%80%A2+SSH+%E2%80%A2+arm64+%E2%80%A2+exact-SHA;modern+iOS+filesystem+research;one+IPA+%E2%80%A2+way+too+many+tools" alt="Filza 27 typing animation" />
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=20&duration=1850&pause=500&color=A855F7&center=true&vCenter=true&repeat=true&width=920&lines=FILZA+%E2%80%A2+MOND+2.1+%E2%80%A2+BYETUNES+%E2%80%A2+3105;WEBDAV+%E2%80%A2+SSH+%E2%80%A2+ARM64+%E2%80%A2+EXACT-SHA;MODERN+iOS+FILESYSTEM+RESEARCH;ONE+IPA+%E2%80%A2+WAY+TOO+MUCH+GOING+ON" alt="Filza 27 typing animation" />
 
 <br />
 
-<a href="https://giphy.com/gifs/pokemon-oKXaUOOwStqnDddLnA">
-  <img src="https://media.giphy.com/media/oKXaUOOwStqnDddLnA/giphy.gif" width="520" alt="Official Pokemon Gengar animation" />
+<table>
+<tr>
+<td align="center" width="50%">
+<a href="https://giphy.com/gifs/pokemon-approaching-mega-gengar-phantasmal-flames-2Xk7V7X97R5gmfUTqx">
+<img src="https://media.giphy.com/media/2Xk7V7X97R5gmfUTqx/giphy.gif" width="100%" alt="Official Pokemon Mega Gengar animation" />
 </a>
+</td>
+<td align="center" width="50%">
+<a href="https://giphy.com/gifs/perfectloop-windows-98-perfectl00p-RbhFAzFEID8Ffrtxyz">
+<img src="https://media.giphy.com/media/RbhFAzFEID8Ffrtxyz/giphy.gif" width="100%" alt="Real glitch vaporwave animation" />
+</a>
+</td>
+</tr>
+</table>
+
+<sub>ghost type energy // old computer energy // modern iOS chaos</sub>
 
 <br /><br />
 
-[![Verified IPA](https://img.shields.io/github/actions/workflow/status/NightVibes33/Filza-27/verify-upstream-byetunes-ssh.yml?branch=main&style=for-the-badge&label=VERIFIED%20IPA&logo=githubactions&logoColor=white&labelColor=0d1117&color=7c3aed)](https://github.com/NightVibes33/Filza-27/actions/workflows/verify-upstream-byetunes-ssh.yml)
-[![Latest Release](https://img.shields.io/github/v/release/NightVibes33/Filza-27?display_name=tag&style=for-the-badge&label=LATEST&labelColor=0d1117&color=9333ea)](https://github.com/NightVibes33/Filza-27/releases/latest)
-[![Downloads](https://img.shields.io/github/downloads/NightVibes33/Filza-27/total?style=for-the-badge&label=DOWNLOADS&labelColor=0d1117&color=7e22ce)](https://github.com/NightVibes33/Filza-27/releases)
-[![Views](https://hits.sh/github.com/NightVibes33/Filza-27.svg?style=for-the-badge&label=VIEWS&color=6d28d9&labelColor=0d1117)](https://hits.sh/github.com/NightVibes33/Filza-27/)
+[![Verified IPA](https://img.shields.io/github/actions/workflow/status/NightVibes33/Filza-27/verify-upstream-byetunes-ssh.yml?branch=main&style=for-the-badge&label=VERIFIED%20IPA&logo=githubactions&logoColor=white&labelColor=09090b&color=7c3aed)](https://github.com/NightVibes33/Filza-27/actions/workflows/verify-upstream-byetunes-ssh.yml)
+[![Latest Release](https://img.shields.io/github/v/release/NightVibes33/Filza-27?display_name=tag&style=for-the-badge&label=LATEST&labelColor=09090b&color=9333ea)](https://github.com/NightVibes33/Filza-27/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/NightVibes33/Filza-27/total?style=for-the-badge&label=DOWNLOADS&labelColor=09090b&color=7e22ce)](https://github.com/NightVibes33/Filza-27/releases)
+[![Views](https://hits.sh/github.com/NightVibes33/Filza-27.svg?style=for-the-badge&label=VIEWS&color=6d28d9&labelColor=09090b)](https://hits.sh/github.com/NightVibes33/Filza-27/)
 
-[![Stars](https://img.shields.io/github/stars/NightVibes33/Filza-27?style=for-the-badge&label=STARS&labelColor=0d1117&color=581c87)](https://github.com/NightVibes33/Filza-27/stargazers)
-[![Forks](https://img.shields.io/github/forks/NightVibes33/Filza-27?style=for-the-badge&label=FORKS&labelColor=0d1117&color=581c87)](https://github.com/NightVibes33/Filza-27/forks)
-[![Issues](https://img.shields.io/github/issues/NightVibes33/Filza-27?style=for-the-badge&label=ISSUES&labelColor=0d1117&color=581c87)](https://github.com/NightVibes33/Filza-27/issues)
-[![Last Commit](https://img.shields.io/github/last-commit/NightVibes33/Filza-27?style=for-the-badge&label=UPDATED&labelColor=0d1117&color=581c87)](https://github.com/NightVibes33/Filza-27/commits/main)
+[![Stars](https://img.shields.io/github/stars/NightVibes33/Filza-27?style=for-the-badge&label=STARS&labelColor=09090b&color=581c87)](https://github.com/NightVibes33/Filza-27/stargazers)
+[![Forks](https://img.shields.io/github/forks/NightVibes33/Filza-27?style=for-the-badge&label=FORKS&labelColor=09090b&color=581c87)](https://github.com/NightVibes33/Filza-27/forks)
+[![Issues](https://img.shields.io/github/issues/NightVibes33/Filza-27?style=for-the-badge&label=ISSUES&labelColor=09090b&color=581c87)](https://github.com/NightVibes33/Filza-27/issues)
+[![Last Commit](https://img.shields.io/github/last-commit/NightVibes33/Filza-27?style=for-the-badge&label=UPDATED&labelColor=09090b&color=581c87)](https://github.com/NightVibes33/Filza-27/commits/main)
+
+[![Repo Size](https://img.shields.io/github/repo-size/NightVibes33/Filza-27?style=for-the-badge&label=SIZE&labelColor=09090b&color=4c1d95)](https://github.com/NightVibes33/Filza-27)
+[![Commit Activity](https://img.shields.io/github/commit-activity/m/NightVibes33/Filza-27?style=for-the-badge&label=COMMITS%2FMONTH&labelColor=09090b&color=4c1d95)](https://github.com/NightVibes33/Filza-27/commits/main)
+[![Watchers](https://img.shields.io/github/watchers/NightVibes33/Filza-27?style=for-the-badge&label=WATCHING&labelColor=09090b&color=4c1d95)](https://github.com/NightVibes33/Filza-27/watchers)
 
 <br />
 
@@ -28,6 +45,7 @@
 [![RELEASES](https://img.shields.io/badge/%E2%97%86-RELEASES-7C3AED?style=for-the-badge&labelColor=111827)](https://github.com/NightVibes33/Filza-27/releases)
 [![CHANGELOG](https://img.shields.io/badge/%E2%9C%A6-CHANGELOG-6D28D9?style=for-the-badge&labelColor=111827)](RELEASE_NOTES.md)
 [![ACTIONS](https://img.shields.io/badge/%E2%9A%A1-ACTIONS-4C1D95?style=for-the-badge&labelColor=111827)](https://github.com/NightVibes33/Filza-27/actions)
+[![SOURCE](https://img.shields.io/badge/%3C%2F%3E-SOURCE-312E81?style=for-the-badge&labelColor=111827)](https://github.com/NightVibes33/Filza-27)
 
 <br />
 
@@ -41,9 +59,9 @@
 
 <div align="center">
 
-### ✦ quick nav
+### ⟡ QUICK NAV ⟡
 
-[**download**](#-download) · [**features**](#-the-stack) · [**mond**](#-mond-21) · [**compatibility**](#-compatibility) · [**builds**](#-verified-build-pipeline) · [**credits**](#-credits)
+[**download**](#-download) · [**stack**](#-the-stack) · [**scene**](#-scene) · [**mond**](#-mond-21) · [**compatibility**](#-compatibility) · [**builds**](#-verified-build-pipeline) · [**credits**](#-credits)
 
 </div>
 
@@ -51,32 +69,34 @@
 
 <table>
 <tr>
-<td width="50%" align="center" valign="middle">
+<td width="48%" valign="top">
 
-<a href="https://giphy.com/gifs/internet-rainbow-apple-l44Qqz6gO6JiVV3pu">
-  <img src="https://media.giphy.com/media/l44Qqz6gO6JiVV3pu/source.gif" width="100%" alt="Retro Macintosh hello animation" />
-</a>
-
-**old Apple energy, modern iOS chaos**
-
-</td>
-<td width="50%" valign="middle">
-
-### STATUS // ONLINE
+### `STATUS // ONLINE`
 
 ```text
-FILZA ............. READY
-MOND 2.1 .......... EMBEDDED
-BYETUNES .......... EMBEDDED
-3105 .............. EMBEDDED
-WEBDAV ............ PORT 11111
-SSH ............... PORT 2222
-ARCH .............. ARM64
-PACKAGE ........... Filza-27.ipa
+╭──────────────────────────────╮
+│ FILZA ............. READY    │
+│ MOND 2.1 .......... LOADED   │
+│ BYETUNES .......... LOADED   │
+│ 3105 .............. LOADED   │
+│ WEBDAV ............ :11111   │
+│ SSH ............... :2222    │
+│ ARCH .............. ARM64    │
+│ PACKAGE ........... IPA      │
+╰──────────────────────────────╯
 ```
 
-> One sideloadable package combining filesystem browsing, container tooling, MobileGestalt research, music tooling, patch workflows and local network access.
+`production package:` **Filza-27.ipa**
 
+`release gate:` **exact-SHA green verifier**
+
+</td>
+<td width="52%" align="center" valign="middle">
+<a href="https://giphy.com/gifs/computer-apple-mac-kMyqWFWtezej6">
+<img src="https://media.giphy.com/media/kMyqWFWtezej6/giphy.gif" width="100%" alt="Real vintage Apple Macintosh GIF" />
+</a>
+
+<sub>1980s Macintosh energy, except it somehow has SSH now.</sub>
 </td>
 </tr>
 </table>
@@ -87,11 +107,16 @@ PACKAGE ........... Filza-27.ipa
 
 <div align="center">
 
-### [`Filza-27.ipa`](https://github.com/NightVibes33/Filza-27/releases/latest/download/Filza-27.ipa)
+# [`Filza-27.ipa`](https://github.com/NightVibes33/Filza-27/releases/latest/download/Filza-27.ipa)
 
-Every public IPA is released only after the verifier succeeds for the **same commit SHA**.
+### `latest verified arm64 package`
+
+Every public IPA is published only after the verifier succeeds for the **same commit SHA**.
 
 `Filza-27.ipa` · `Filza-27-SHA256.txt`
+
+[![Latest Release](https://img.shields.io/github/v/release/NightVibes33/Filza-27?style=flat-square&label=release&color=a855f7)](https://github.com/NightVibes33/Filza-27/releases/latest)
+[![Workflow](https://img.shields.io/github/actions/workflow/status/NightVibes33/Filza-27/verify-upstream-byetunes-ssh.yml?branch=main&style=flat-square&label=verifier&color=7c3aed)](https://github.com/NightVibes33/Filza-27/actions/workflows/verify-upstream-byetunes-ssh.yml)
 
 </div>
 
@@ -115,17 +140,17 @@ Filesystem browser and reachable-container tooling.
 <td width="33%" valign="top">
 
 ### 🟣 Mond 2.1
-Pinned upstream Mond source integrated into the Filza runtime.
+Pinned upstream Mond integrated into the Filza runtime.
 
 `Gestalt` `Tendies` `Santander`
 
 </td>
 <td width="33%" valign="top">
 
-### 🎧 ByeTunes
-Music library, metadata, backup and restore tooling.
+### 🎵 ByeTunes
+Embedded music tooling and metadata flows.
 
-`metadata` `YouTubeKit` `backups`
+`library` `metadata` `backups`
 
 </td>
 </tr>
@@ -133,37 +158,56 @@ Music library, metadata, backup and restore tooling.
 <td width="33%" valign="top">
 
 ### 🧩 3105
-Apps Manager + `.3105` Patch Workspace v2.
+Apps Manager + `.3105` Patch Workspace.
 
-`patches` `receipts` `restore`
+`projects` `receipts` `restore`
 
 </td>
 <td width="33%" valign="top">
 
 ### 🌐 WebDAV
-In-process local-network file server.
+In-process network file server.
 
-`port 11111`
+`local network` `:11111`
 
 </td>
 <td width="33%" valign="top">
 
 ### `>_` SSH
-Embedded libssh server using Filza's existing process permissions.
+Embedded libssh server.
 
-`port 2222`
+`password auth` `:2222`
 
+</td>
+</tr>
+</table>
+
+---
+
+## ◈ Scene
+
+<table>
+<tr>
+<td width="50%" align="center">
+<a href="https://giphy.com/gifs/pokemon-oKXaUOOwStqnDddLnA">
+<img src="https://media.giphy.com/media/oKXaUOOwStqnDddLnA/giphy.gif" width="100%" alt="Official Pokemon Gengar animation" />
+</a>
+<br />
+<b>GENGAR // NIGHT MODE</b>
+</td>
+<td width="50%" align="center">
+<a href="https://giphy.com/gifs/vaporwave-cyberpunk-futuristic-26tnkzDoBp0NVpQt2">
+<img src="https://media.giphy.com/media/26tnkzDoBp0NVpQt2/giphy.gif" width="100%" alt="Real vaporwave cyberpunk animation" />
+</a>
+<br />
+<b>NETWORK // DREAM STATE</b>
 </td>
 </tr>
 </table>
 
 <div align="center">
 
-![Filza](https://img.shields.io/badge/FILZA-4.11-111827?style=flat-square&labelColor=0d1117&color=7c3aed)
-![Mond](https://img.shields.io/badge/MOND-2.1-111827?style=flat-square&labelColor=0d1117&color=9333ea)
-![Arch](https://img.shields.io/badge/ARCH-arm64-111827?style=flat-square&labelColor=0d1117&color=a855f7)
-![WebDAV](https://img.shields.io/badge/WEBDAV-11111-111827?style=flat-square&labelColor=0d1117&color=6d28d9)
-![SSH](https://img.shields.io/badge/SSH-2222-111827?style=flat-square&labelColor=0d1117&color=5b21b6)
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=16&duration=1600&pause=450&color=8B5CF6&center=true&vCenter=true&repeat=true&width=900&lines=%5Bboot%5D+loading+filesystem+surface...;%5Bmond%5D+mounting+Gestalt+routes...;%5Bnetwork%5D+bringing+WebDAV+%2B+SSH+online...;%5Brelease%5D+waiting+for+exact-SHA+green..." alt="Boot sequence typing animation" />
 
 </div>
 
@@ -171,28 +215,35 @@ Embedded libssh server using Filza's existing process permissions.
 
 ## ✦ Mond 2.1
 
-Mond is pinned to:
+Mond is staged from exact pinned upstream source and embedded in the Filza runtime.
 
 ```text
 rooootdev/mond@500d76082f0ca021ddd591c05d129ebbc26c20df
 ```
 
-The current integration includes:
-
-- **MobileGestalt**
-- **PosterBoard / Tendies**
-- **HouseArrest / Santander**
-- shared upstream `AppState`
-- **Run Exploit** / **Generate Token** upstream flow
-- CacheExtra and safe MobileGestalt offset fixes from the pinned tree
-- exact upstream source preserved under `ThirdParty/mond-current/Upstream`
+| Route | Included |
+| --- | --- |
+| MobileGestalt | ✅ |
+| PosterBoard / Tendies | ✅ |
+| HouseArrest / Santander | ✅ |
+| Shared AppState | ✅ |
+| Run Exploit | ✅ upstream flow |
+| Generate Token | ✅ upstream flow |
 
 <details>
-<summary><b>⌘ MobileGestalt details</b></summary>
+<summary><b>open Mond technical details</b></summary>
 
 <br />
 
-Exposed access-method choices:
+Exact upstream source is preserved under:
+
+```text
+ThirdParty/mond-current/Upstream
+```
+
+Embedded code receives only the mechanical module/symbol namespacing needed to coexist in the Filza process. Sandbox SPI compatibility is bridged by `MondSandboxSPICompat.c`.
+
+Access-method choices exposed by Mond:
 
 ```text
 bad_query
@@ -205,115 +256,77 @@ MobileGestalt cache:
 /private/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist
 ```
 
-The editor includes newer iOS 27 capability mappings alongside Dynamic Island, Always-On Display, Camera Control, Action Button, Stage Manager, Apple Intelligence eligibility and related controls.
-
 </details>
 
 ---
 
-## ✦ Compatibility
+## ◇ Compatibility
 
 <div align="center">
 
-![iOS 18](https://img.shields.io/badge/iOS-18-0d1117?style=for-the-badge&logo=apple&logoColor=white&color=4c1d95)
-![iOS 26](https://img.shields.io/badge/iOS-26-0d1117?style=for-the-badge&logo=apple&logoColor=white&color=5b21b6)
-![iOS 27 beta 1-4](https://img.shields.io/badge/iOS%2027-%CE%B21%E2%80%93%CE%B24-0d1117?style=for-the-badge&logo=apple&logoColor=white&color=6d28d9)
+![iOS 18](https://img.shields.io/badge/iOS-18-111827?style=for-the-badge&logo=apple&logoColor=white)
+![iOS 26](https://img.shields.io/badge/iOS-26-111827?style=for-the-badge&logo=apple&logoColor=white)
+![iOS 27 beta 1-4](https://img.shields.io/badge/iOS%2027-%CE%B21%E2%80%93%CE%B24-312E81?style=for-the-badge&logo=apple&logoColor=white)
+![arm64](https://img.shields.io/badge/ARCH-arm64-4C1D95?style=for-the-badge)
 
 </div>
 
-For iOS 27, the useful `bad_query` behavior is associated with **beta 1–4**. Do not assume equivalent access on beta 5 or newer. Runtime access varies with hardware and build, so Filza 27 checks real file/directory access instead of treating a returned handle as proof of unrestricted access.
+For iOS 27, useful `bad_query` behavior is associated with **beta 1–4**. Do not assume identical access on beta 5 or newer. Actual access varies by hardware and OS build, so FilzaSlop validates real file/directory access instead of treating a returned handle as automatic success.
 
 ---
 
-## ✦ More Gengar because why not
+## ⚡ Live repo telemetry
 
 <div align="center">
 
-<a href="https://giphy.com/gifs/pokemon-gengar-poketoon-i2D4ICl2gBXxeBliBo">
-  <img src="https://media.giphy.com/media/i2D4ICl2gBXxeBliBo/giphy.gif" width="520" alt="Official Pokemon Gengar dark smile animation" />
+<img src="https://github-readme-stats.vercel.app/api/pin/?username=NightVibes33&repo=Filza-27&theme=midnight-purple&hide_border=true&bg_color=0d1117" alt="Filza 27 repository card" />
+
+<br />
+
+<img src="https://api.star-history.com/svg?repos=NightVibes33/Filza-27&type=Date&theme=dark" width="90%" alt="Filza 27 star history" />
+
+<br /><br />
+
+### contributors
+
+<a href="https://github.com/NightVibes33/Filza-27/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=NightVibes33/Filza-27" alt="Filza 27 contributors" />
 </a>
 
-<br />
-
-<sub>repo theme requirement: purple ghost energy</sub>
-
 </div>
 
 ---
 
-## ✦ Install
+## ✓ Verified build pipeline
 
-1. Download [`Filza-27.ipa`](https://github.com/NightVibes33/Filza-27/releases/latest/download/Filza-27.ipa).
-2. Sideload it using your preferred signing method.
-3. Preserve the base identity when your signer allows it:
-
-```text
-com.apple.mobile.MobileHouseArrest
+```mermaid
+flowchart LR
+    A[main source] --> B[arm64 compile]
+    B --> C[Mond / ByeTunes / 3105 checks]
+    C --> D[package Filza base]
+    D --> E[IPA verification]
+    E --> F[SHA-256]
+    F --> G[GitHub Release]
 ```
 
-Changing the bundle identifier can break MobileHouseArrest-dependent behavior.
-
----
-
-## ✦ Verified build pipeline
-
-```text
-source
-  ↓
-pinned dependencies
-  ↓
-arm64 compile + link
-  ↓
-package anchored Filza base
-  ↓
-exact-SHA verifier
-  ↓
-SHA-256
-  ↓
-GitHub Release
-```
-
-<details>
-<summary><b>⚡ Build workflow details</b></summary>
-
-<br />
-
-Verifier:
+Primary verifier:
 
 ```text
 .github/workflows/verify-upstream-byetunes-ssh.yml
 ```
 
-Publisher:
+Release publisher:
 
 ```text
 .github/workflows/publish-green-ipa-release.yml
 ```
 
-The publisher downloads the artifact produced for the same successful verifier commit and publishes:
+The publisher waits for a green verifier at the **same commit SHA**, downloads that exact artifact, validates it, calculates SHA-256, and publishes:
 
 ```text
 Filza-27.ipa
 Filza-27-SHA256.txt
 ```
-
-Release text comes from [`RELEASE_NOTES.md`](RELEASE_NOTES.md) plus exact build metadata.
-
-</details>
-
----
-
-## ✦ Live repo cards
-
-<div align="center">
-
-<img src="https://github-readme-stats.vercel.app/api/pin/?username=NightVibes33&repo=Filza-27&theme=midnight-purple&hide_border=true&bg_color=00000000&title_color=A855F7&text_color=C4B5FD&icon_color=8B5CF6" alt="Filza 27 repository stats" />
-
-<br />
-
-<img src="https://api.star-history.com/svg?repos=NightVibes33/Filza-27&type=Date&theme=dark" width="720" alt="Filza 27 star history" />
-
-</div>
 
 ---
 
@@ -338,7 +351,7 @@ Default port: 11111
 Default port: 2222
 ```
 
-Both services operate with the filesystem permissions already available to the Filza process. iOS can suspend app-hosted services while the app is backgrounded.
+Both services expose only filesystem access already available to the FilzaSlop process. iOS may suspend app-hosted network services while backgrounded.
 
 </details>
 
@@ -361,34 +374,22 @@ ByeTunesEmbedStage.txt
 </details>
 
 <details>
-<summary><b>⚠️ Current limitations</b></summary>
+<summary><b>⚠ Current limitations</b></summary>
 
 <br />
 
-- Green Actions verifies compilation, linking, packaging and artifact checks—not identical private-API behavior across every device/build.
-- `/System/Library` may be readable while remaining part of the signed read-only system volume.
-- App Group/container access does not imply unrestricted filesystem access.
+- A green Actions build proves compilation, linking, packaging, and artifact verification—not identical private-API behavior on every device/build.
+- `/System/Library` may be readable while remaining on iOS's signed read-only system volume.
+- Access to an App Group or data container does not imply unrestricted filesystem access.
 - Kernel read/write is not established by this project.
-- No root shell, SPTM bypass or system-volume remount is claimed.
+- No full jailbreak, root shell, SPTM bypass, or system-volume remount is claimed.
 - WebDAV and SSH are app-hosted and may be suspended in the background.
 
 </details>
 
 ---
 
-## ✦ Contributors
-
-<div align="center">
-
-<a href="https://github.com/NightVibes33/Filza-27/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=NightVibes33/Filza-27" alt="Filza 27 contributors" />
-</a>
-
-</div>
-
----
-
-## ✦ Credits
+## ♱ Credits
 
 <div align="center">
 
@@ -398,8 +399,14 @@ ByeTunesEmbedStage.txt
 
 <br /><br />
 
-### `FILZA 27 // NIGHTVIBES33`
+<a href="https://giphy.com/gifs/pokemon-gengar-mimikyu-pokemon-tcg-9CtPkMaR4Yp3NQOZ6u">
+<img src="https://media.giphy.com/media/9CtPkMaR4Yp3NQOZ6u/giphy.gif" width="420" alt="Official Pokemon Gengar and Mimikyu animation" />
+</a>
 
-<sub>README visual experiment branch — production source behavior is unchanged.</sub>
+<br />
+
+### `FILZA 27 // END OF FILE`
+
+<sub>README visual experiment on <code>preview/gunslol-readme</code>. Production source behavior is unchanged.</sub>
 
 </div>
