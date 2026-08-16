@@ -3,6 +3,7 @@ import SwiftUI
 import UIKit
 import UniformTypeIdentifiers
 import ObjectiveC.runtime
+import PartyUI
 
 // Integration boundary only. The Mond 2.1 source tree is compiled unchanged in
 // this same module. This host reproduces the standalone App lifecycle that
