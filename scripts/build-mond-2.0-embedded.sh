@@ -12,12 +12,13 @@ OBJ="$BUILD/obj"
 OUT="$PWD/.theos/obj/Mond2Embedded.dylib"
 SDK="$(xcrun --sdk iphoneos --show-sdk-path)"
 TARGET="arm64-apple-ios17.0"
-MOND_COMMIT="87b38b2726160c6d1cfacbbfa834a2572d7ca333"
+MOND_COMMIT="500d76082f0ca021ddd591c05d129ebbc26c20df"
 
 bash scripts/stage-mond-2.0.sh
 rm -rf "$BUILD"
 mkdir -p "$MODULES" "$LIBS" "$OBJ" "$(dirname "$OUT")"
 
+# bash 3.2 on macOS has no mapfile/readarray, so populate arrays explicitly.
 PARTY_SOURCES=()
 while IFS= read -r source; do PARTY_SOURCES+=("$source"); done < <(find "$PARTYUI/Sources/PartyUI" -type f -name '*.swift' -print | sort)
 ZIP_SOURCES=()
@@ -33,19 +34,6 @@ printf '%s\n' "${MOND_SOURCES[@]}" | grep -Fq '/views/tweaks/posterboard/Tendies
 printf '%s\n' "${MOND_SOURCES[@]}" | grep -Fq '/views/tweaks/SantanderView.swift'
 test "$(git -C "$MOND" rev-parse HEAD)" = "$MOND_COMMIT"
 
-# Verify the exact upstream 2.0 behavior at source level before compilation.
-# Swift may coalesce UI literals in optimized Mach-O output, so raw-string
-# searches of the dylib are not a reliable proof of UI presence.
-grep -Fq '@StateObject private var state = AppState()' "$MOND/mond/mond.swift"
-grep -Fq 'UserDefaults.standard.register(defaults: ["exploit_method": "bad_query"])' "$MOND/mond/mond.swift"
-grep -Fq 'grant_all(state: state)' "$MOND/mond/mond.swift"
-grep -Fq 'Text("Explore Tendies")' "$MOND/mond/views/tweaks/posterboard/PosterView.swift"
-grep -Fq 'SantanderView()' "$MOND/mond/views/app/ContentView.swift"
-grep -Fq 'Text("Run Exploit")' "$MOND/mond/views/app/SettingsView.swift"
-grep -Fq 'Text("Generate Token")' "$MOND/mond/views/app/SettingsView.swift"
-grep -Fq 'Your sandbox token is invalid.' "$MOND/mond/views/app/SettingsView.swift"
-test -z "$(git -C "$MOND" status --porcelain)"
-
 COMMON_SWIFT=(
     -target "$TARGET"
     -sdk "$SDK"
@@ -53,7 +41,7 @@ COMMON_SWIFT=(
     -module-cache-path "$BUILD/ModuleCache"
 )
 
-xcrun --sdk iphoneos swiftc "${COMMON_SWIFT[@]}" \
+xcrun swiftc "${COMMON_SWIFT[@]}" \
     -swift-version 6 \
     -O \
     -emit-library -static \
@@ -63,7 +51,7 @@ xcrun --sdk iphoneos swiftc "${COMMON_SWIFT[@]}" \
     -o "$LIBS/libPartyUI.a" \
     "${PARTY_SOURCES[@]}"
 
-xcrun --sdk iphoneos swiftc "${COMMON_SWIFT[@]}" \
+xcrun swiftc "${COMMON_SWIFT[@]}" \
     -swift-version 5 \
     -O \
     -emit-library -static \
@@ -73,7 +61,7 @@ xcrun --sdk iphoneos swiftc "${COMMON_SWIFT[@]}" \
     -o "$LIBS/libZIPFoundation.a" \
     "${ZIP_SOURCES[@]}"
 
-xcrun --sdk iphoneos clang \
+xcrun clang \
     -target "$TARGET" \
     -isysroot "$SDK" \
     -fPIC \
@@ -81,7 +69,7 @@ xcrun --sdk iphoneos clang \
     -c "$MOND/mond/exploit/bad_query/bad_query.c" \
     -o "$OBJ/mond_bad_query.o"
 
-xcrun --sdk iphoneos swiftc "${COMMON_SWIFT[@]}" \
+xcrun swiftc "${COMMON_SWIFT[@]}" \
     -swift-version 5 \
     -default-isolation MainActor \
     -O \
@@ -116,44 +104,43 @@ test -s "$OUT"
 test "$(lipo -archs "$OUT")" = "arm64"
 otool -L "$OUT" | grep -F '@rpath/Mond2Embedded.dylib'
 if otool -L "$OUT" | grep -E '/(PartyUI|ZIPFoundation)'; then
-    echo "Mond 2.0 verifier failed: PartyUI/ZIPFoundation must be statically embedded" >&2
+    echo "Mond 2.1 verifier failed: PartyUI/ZIPFoundation must be statically embedded" >&2
     exit 1
 fi
 
-# Prove the exact upstream Swift sources emitted code into the dylib. This is
-# stronger than depending on optimizer-sensitive raw UI string layout.
+# UI text literals may be optimized/coalesced by Swift, so binary string scans
+# are not a reliable proof of source inclusion. Verify the compiled Swift types
+# instead; stage-mond-2.0.sh separately verifies exact upstream 2.1 source/UI.
 nm "$OUT" | xcrun swift-demangle > "$BUILD/Mond2Embedded.symbols"
 for symbol in \
     'Mond2Embedded.mond' \
     'Mond2Embedded.ContentView' \
     'Mond2Embedded.SettingsView' \
-    'Mond2Embedded.PosterView' \
     'Mond2Embedded.TendiesView' \
     'Mond2Embedded.SantanderView'; do
     if ! grep -Fq "$symbol" "$BUILD/Mond2Embedded.symbols"; then
-        echo "Mond 2.0 verifier failed: compiled dylib missing Swift symbol: $symbol" >&2
+        echo "Mond 2.1 verifier failed: compiled dylib missing Swift symbol: $symbol" >&2
         exit 1
     fi
-    echo "Verified compiled Mond 2.0 Swift symbol: $symbol"
+    echo "Verified compiled Mond 2.1 Swift symbol: $symbol"
 done
 
-grep -aFq 'exact upstream mond 2.0 runtime configured commit=87b38b2726160c6d1cfacbbfa834a2572d7ca333' "$OUT"
+# This is an integration-adapter diagnostic and therefore should remain a
+# concrete binary string even under optimization.
+grep -aFq 'exact upstream mond 2.1 runtime configured commit=500d76082f0ca021ddd591c05d129ebbc26c20df' "$OUT"
 
-# -emit-library intentionally produces a dylib rather than an executable entry
-# point. Upstream mond.swift is still compiled unchanged, proven above by the
-# Mond2Embedded.mond symbol and the exact clean source checkout.
+# -emit-library intentionally does not export an executable _main entry point.
+# The upstream @main source is still compiled unchanged, proven by the
+# Mond2Embedded.mond App type above and the clean exact source checkout.
 if nm "$OUT" | grep -Eq '[[:space:]]_main$'; then
-    echo "Mond 2.0 verifier failed: embedded dylib unexpectedly exports executable _main" >&2
+    echo "Mond 2.1 verifier failed: embedded dylib unexpectedly exports executable _main" >&2
     exit 1
 fi
 
-for repo in "$MOND" "$PARTYUI" "$ZIPFOUNDATION"; do
-    test -z "$(git -C "$repo" status --porcelain)" || {
-        echo "Mond 2.0 verifier failed: staged upstream repository became dirty: $repo" >&2
-        git -C "$repo" status --short >&2
-        exit 1
-    }
-done
+# Compilation is not allowed to mutate the staged upstream repositories.
+test -z "$(git -C "$MOND" status --porcelain)"
+test -z "$(git -C "$PARTYUI" status --porcelain)"
+test -z "$(git -C "$ZIPFOUNDATION" status --porcelain)"
 
 shasum -a 256 "$OUT"
-echo "Built isolated exact Mond 2.0 dylib without modifying upstream source"
+echo "Built isolated exact Mond 2.1 dylib without modifying upstream source"
