@@ -208,22 +208,25 @@ focus      filesystem
 
 <div align="center">
 
-### `animated directly from the PokeAPI GitHub sprite repository`
+### `GENGAR // animated directly from the PokeAPI GitHub sprite repository`
 
 <br />
 
-<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/94.gif" height="92" alt="Gengar" />
-<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/93.gif" height="92" alt="Haunter" />
-<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/778.gif" height="92" alt="Mimikyu" />
-<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/197.gif" height="92" alt="Umbreon" />
-<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/150.gif" height="92" alt="Mewtwo" />
-<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/448.gif" height="92" alt="Lucario" />
-<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/384.gif" height="92" alt="Rayquaza" />
-<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/6.gif" height="92" alt="Charizard" />
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/94.gif" height="96" alt="Gengar front" />
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/94.gif" height="96" alt="Shiny Gengar front" />
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/94.gif" height="96" alt="Gengar back" />
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/shiny/94.gif" height="96" alt="Shiny Gengar back" />
 
 <br /><br />
 
-`GENGAR  ·  HAUNTER  ·  MIMIKYU  ·  UMBREON  ·  MEWTWO  ·  LUCARIO  ·  RAYQUAZA  ·  CHARIZARD`
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/94.gif" height="96" alt="Gengar Black White front" />
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/94.gif" height="96" alt="Shiny Gengar Black White front" />
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/94.gif" height="96" alt="Gengar Black White back" />
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/shiny/94.gif" height="96" alt="Shiny Gengar Black White back" />
+
+<br /><br />
+
+`GENGAR  ·  SHINY GENGAR  ·  FRONT  ·  BACK  ·  SHOWDOWN  ·  BLACK / WHITE`
 
 <br /><br />
 
@@ -231,7 +234,7 @@ focus      filesystem
 
 </div>
 
-> These small animated sprites are served from GitHub itself, so this section also gives the README a reliable animated fallback even if a third-party GIF CDN is having a bad day.
+> The small Gengar animations are served from GitHub-hosted PokeAPI sprite assets, giving the README a reliable animated layer even when a third-party GIF CDN is flaky.
 
 ---
 
@@ -440,7 +443,7 @@ No. The README deliberately separates verified file/container access from jailbr
 `Filza-27-SHA256.txt` lets you verify the exact released package.
 
 **Why do some large GIFs occasionally fail to show?**  
-Those are third-party hosted visuals. The animated Sprite Arcade is hosted from a GitHub repository and is intentionally included as a more reliable animation layer.
+Those are third-party hosted visuals. The Gengar Sprite Arcade is hosted from GitHub-backed PokeAPI assets and is intentionally included as a more reliable animation layer.
 
 </details>
 
@@ -456,9 +459,9 @@ Those are third-party hosted visuals. The animated Sprite Arcade is hosted from 
 
 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/94.gif" height="84" alt="Gengar" />
 &nbsp;&nbsp;
-<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/197.gif" height="84" alt="Umbreon" />
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/94.gif" height="84" alt="Shiny Gengar" />
 &nbsp;&nbsp;
-<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/778.gif" height="84" alt="Mimikyu" />
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/94.gif" height="84" alt="Gengar Black White" />
 
 <br /><br />
 
