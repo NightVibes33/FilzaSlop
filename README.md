@@ -52,7 +52,7 @@
 
 <br />
 
-[**Download**](#download) · [**Filza Core**](#filza-core) · [**Scene**](#scene) · [**Project Pulse**](#project-pulse) · [**Compatibility**](#compatibility) · [**Install**](#install)
+[**Download**](#download) · [**Filza Core**](#filza-core) · [**Scene**](#scene) · [**Sprite Arcade**](#sprite-arcade) · [**Project Pulse**](#project-pulse) · [**Compatibility**](#compatibility) · [**Install**](#install)
 
 </div>
 
@@ -111,6 +111,15 @@ Filza 27 is built around the **file manager itself**. The visual style can be lo
 </td>
 </tr>
 </table>
+
+<div align="center">
+
+![Browse](https://img.shields.io/badge/BROWSE-files-7C3AED?style=for-the-badge)
+![Inspect](https://img.shields.io/badge/INSPECT-paths-6D28D9?style=for-the-badge)
+![Manage](https://img.shields.io/badge/MANAGE-content-581C87?style=for-the-badge)
+![Archive](https://img.shields.io/badge/ARCHIVE-ZIP-4C1D95?style=for-the-badge)
+
+</div>
 
 ---
 
@@ -195,6 +204,37 @@ focus      filesystem
 
 ---
 
+## Sprite Arcade
+
+<div align="center">
+
+### `animated directly from the PokeAPI GitHub sprite repository`
+
+<br />
+
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/94.gif" height="92" alt="Gengar" />
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/93.gif" height="92" alt="Haunter" />
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/778.gif" height="92" alt="Mimikyu" />
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/197.gif" height="92" alt="Umbreon" />
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/150.gif" height="92" alt="Mewtwo" />
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/448.gif" height="92" alt="Lucario" />
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/384.gif" height="92" alt="Rayquaza" />
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/6.gif" height="92" alt="Charizard" />
+
+<br /><br />
+
+`GENGAR  ·  HAUNTER  ·  MIMIKYU  ·  UMBREON  ·  MEWTWO  ·  LUCARIO  ·  RAYQUAZA  ·  CHARIZARD`
+
+<br /><br />
+
+<img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&size=11&duration=2200&pause=700&color=C084FC&center=true&vCenter=true&repeat=true&width=900&lines=SELECT+YOUR+FILE...;OPEN+DIRECTORY...;INSPECT+CONTAINER...;ARCHIVE+COMPLETE..." alt="Arcade status animation" />
+
+</div>
+
+> These small animated sprites are served from GitHub itself, so this section also gives the README a reliable animated fallback even if a third-party GIF CDN is having a bad day.
+
+---
+
 ## Project Pulse
 
 <div align="center">
@@ -276,6 +316,25 @@ asset       Filza-27.ipa
 </td>
 </tr>
 </table>
+
+---
+
+## Release Flow
+
+```mermaid
+flowchart LR
+    A[Source] --> B[arm64 Build]
+    B --> C[Package IPA]
+    C --> D[Exact-SHA Verify]
+    D --> E[SHA-256]
+    E --> F[Filza-27.ipa]
+```
+
+<div align="center">
+
+`SOURCE  →  BUILD  →  PACKAGE  →  VERIFY  →  RELEASE`
+
+</div>
 
 ---
 
@@ -366,6 +425,25 @@ Documents/FilzaSlop Logs/
 
 </details>
 
+<details>
+<summary><b>Quick FAQ</b></summary>
+
+<br />
+
+**Is this a full jailbreak?**  
+No. The README deliberately separates verified file/container access from jailbreak claims.
+
+**What gets downloaded?**  
+`Filza-27.ipa` from the latest verified GitHub Release.
+
+**Why the SHA file?**  
+`Filza-27-SHA256.txt` lets you verify the exact released package.
+
+**Why do some large GIFs occasionally fail to show?**  
+Those are third-party hosted visuals. The animated Sprite Arcade is hosted from a GitHub repository and is intentionally included as a more reliable animation layer.
+
+</details>
+
 ---
 
 ## Credits
@@ -374,7 +452,15 @@ Documents/FilzaSlop Logs/
 
 [FilzaJailedDS](https://github.com/34306/FilzaJailedDS) · [FilzaSlop](https://github.com/0xjohnnydev/FilzaSlop) · [MobileHouseArrest-PoC](https://github.com/0xjohnnydev/MobileHouseArrest-PoC) · [bad_query](https://github.com/forcequitOS/bad_query) · [mond](https://github.com/rooootdev/mond) · [3105](https://github.com/YangJiiii/3105) · [ByeTunes](https://github.com/EduAlexxis/ByeTunes)
 
-<br />
+<br /><br />
+
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/94.gif" height="84" alt="Gengar" />
+&nbsp;&nbsp;
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/197.gif" height="84" alt="Umbreon" />
+&nbsp;&nbsp;
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/778.gif" height="84" alt="Mimikyu" />
+
+<br /><br />
 
 **✦ 𖤐 FILZA 27 𖤐 ✦**
 
