@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-MOND_COMMIT="87b38b2726160c6d1cfacbbfa834a2572d7ca333"
+MOND_COMMIT="500d76082f0ca021ddd591c05d129ebbc26c20df"
 PARTYUI_COMMIT="830eaac8ebf8a4cbcec08d49e8746033574d1903"
 ZIPFOUNDATION_COMMIT="22787ffb59de99e5dc1fbfe80b19c97a904ad48d"
 
@@ -46,22 +46,32 @@ required_mond=(
     mond/views/tweaks/posterboard/TendiesView.swift
 )
 for rel in "${required_mond[@]}"; do
-    test -f "$MOND/$rel" || { echo "Mond 2.0 source missing: $rel" >&2; exit 1; }
+    test -f "$MOND/$rel" || { echo "Mond 2.1 source missing: $rel" >&2; exit 1; }
 done
 
 test -d "$PARTYUI/Sources/PartyUI"
 test -d "$ZIPFOUNDATION/Sources/ZIPFoundation"
 
+# Mond 2.1's immutable source revision still carries 2.0 in the Xcode project's
+# marketing-version field. Preserve that upstream metadata exactly; identify the
+# integrated release by the immutable commit pin above.
 grep -Fq 'MARKETING_VERSION = 2.0;' "$MOND/mond.xcodeproj/project.pbxproj"
 grep -Fq 'PRODUCT_BUNDLE_IDENTIFIER = com.roooot.mond;' "$MOND/mond.xcodeproj/project.pbxproj"
+
+# Prove the complete 2.1 source surface and its upstream fixes are present.
 grep -Fq 'Explore Tendies' "$MOND/mond/views/tweaks/posterboard/PosterView.swift"
 grep -Fq 'struct TendiesView' "$MOND/mond/views/tweaks/posterboard/TendiesView.swift"
 grep -Fq 'struct SantanderView' "$MOND/mond/views/tweaks/SantanderView.swift"
+grep -Fq '@StateObject private var state = AppState.shared' "$MOND/mond/mond.swift"
+grep -Fq 'UserDefaults.standard.register(defaults: ["method": "bad_query"])' "$MOND/mond/mond.swift"
 grep -Fq 'grant_all(state: state)' "$MOND/mond/mond.swift"
+grep -Fq 'private static func cache_extra' "$MOND/mond/helpers/mg.swift"
+grep -Fq 'func cache_data_safe_offset' "$MOND/mond/helpers/mg.swift"
+grep -Fq 'state.pb_granted = false' "$MOND/mond/exploit/unsbx.swift"
 grep -Fq 'sandbox_extension_consume(token)' "$MOND/mond/views/app/SettingsView.swift"
 
-# This is the hard guarantee requested for the Filza integration: Mond itself is
-# checked out at an immutable upstream commit and is never rewritten or patched.
+# Hard integration guarantee: Mond, PartyUI, and ZIPFoundation are immutable
+# upstream checkouts and are never rewritten or patched by Filza.
 test -z "$(git -C "$MOND" status --porcelain)"
 test -z "$(git -C "$PARTYUI" status --porcelain)"
 test -z "$(git -C "$ZIPFOUNDATION" status --porcelain)"
@@ -72,5 +82,5 @@ PartyUI=$PARTYUI_COMMIT
 ZIPFoundation=$ZIPFOUNDATION_COMMIT
 PINS
 
-printf 'Staged exact upstream Mond 2.0 %s with PartyUI %s and ZIPFoundation %s; source tree unchanged\n' \
+printf 'Staged exact upstream Mond 2.1 %s with PartyUI %s and ZIPFoundation %s; source tree unchanged\n' \
     "$MOND_COMMIT" "$PARTYUI_COMMIT" "$ZIPFOUNDATION_COMMIT"
