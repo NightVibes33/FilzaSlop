@@ -108,20 +108,25 @@ if otool -L "$OUT" | grep -E '/(PartyUI|ZIPFoundation)'; then
     exit 1
 fi
 
-# Exact 2.1 feature/lifecycle markers. They come from the untouched upstream
-# source; the wrapper contributes only its explicit integration provenance.
-for marker in \
-    'Explore Tendies' \
-    'HouseArrest' \
-    'Run Exploit' \
-    'Generate Token' \
-    'exact upstream mond 2.1 runtime configured commit=500d76082f0ca021ddd591c05d129ebbc26c20df'; do
-    if ! grep -aFq "$marker" "$OUT"; then
-        echo "Mond 2.1 verifier failed: linked dylib missing marker: $marker" >&2
+# UI text literals may be optimized/coalesced by Swift, so binary string scans
+# are not a reliable proof of source inclusion. Verify the compiled Swift types
+# instead; stage-mond-2.0.sh separately verifies exact upstream 2.1 source/UI.
+nm "$OUT" | xcrun swift-demangle > "$BUILD/Mond2Embedded.symbols"
+for symbol in \
+    'Mond2Embedded.ContentView' \
+    'Mond2Embedded.SettingsView' \
+    'Mond2Embedded.TendiesView' \
+    'Mond2Embedded.SantanderView'; do
+    if ! grep -Fq "$symbol" "$BUILD/Mond2Embedded.symbols"; then
+        echo "Mond 2.1 verifier failed: compiled dylib missing Swift symbol: $symbol" >&2
         exit 1
     fi
-    echo "Verified linked Mond 2.1 marker: $marker"
+    echo "Verified compiled Mond 2.1 Swift symbol: $symbol"
 done
+
+# This is an integration-adapter diagnostic and therefore should remain a
+# concrete binary string even under optimization.
+grep -aFq 'exact upstream mond 2.1 runtime configured commit=500d76082f0ca021ddd591c05d129ebbc26c20df' "$OUT"
 
 if nm "$OUT" | grep -Eq '[[:space:]]_main$'; then
     echo "Verified upstream @main entry symbol is retained in isolated Mond dylib"
