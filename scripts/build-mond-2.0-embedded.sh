@@ -103,16 +103,32 @@ xcrun swiftc "${COMMON_SWIFT[@]}" \
 test -s "$OUT"
 test "$(lipo -archs "$OUT")" = "arm64"
 otool -L "$OUT" | grep -F '@rpath/Mond2Embedded.dylib'
-! otool -L "$OUT" | grep -E '/(PartyUI|ZIPFoundation)'
+if otool -L "$OUT" | grep -E '/(PartyUI|ZIPFoundation)'; then
+    echo "Mond 2.1 verifier failed: PartyUI/ZIPFoundation must be statically embedded" >&2
+    exit 1
+fi
 
 # Exact 2.1 feature/lifecycle markers. They come from the untouched upstream
 # source; the wrapper contributes only its explicit integration provenance.
-grep -aFq 'Explore Tendies' "$OUT"
-grep -aFq 'HouseArrest' "$OUT"
-grep -aFq 'Run Exploit' "$OUT"
-grep -aFq 'Generate Token' "$OUT"
-grep -aFq 'exact upstream mond 2.1 runtime configured commit=500d76082f0ca021ddd591c05d129ebbc26c20df' "$OUT"
-nm "$OUT" | grep -Eq '[[:space:]]_main$'
+for marker in \
+    'Explore Tendies' \
+    'HouseArrest' \
+    'Run Exploit' \
+    'Generate Token' \
+    'exact upstream mond 2.1 runtime configured commit=500d76082f0ca021ddd591c05d129ebbc26c20df'; do
+    if ! grep -aFq "$marker" "$OUT"; then
+        echo "Mond 2.1 verifier failed: linked dylib missing marker: $marker" >&2
+        exit 1
+    fi
+    echo "Verified linked Mond 2.1 marker: $marker"
+done
+
+if nm "$OUT" | grep -Eq '[[:space:]]_main$'; then
+    echo "Verified upstream @main entry symbol is retained in isolated Mond dylib"
+else
+    echo "Mond 2.1 verifier failed: upstream @main entry symbol not retained" >&2
+    exit 1
+fi
 
 # Compilation is not allowed to mutate the staged upstream repositories.
 test -z "$(git -C "$MOND" status --porcelain)"
