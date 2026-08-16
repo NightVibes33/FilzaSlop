@@ -39,7 +39,7 @@ COMMON_SWIFT=(
     -module-cache-path "$BUILD/ModuleCache"
 )
 
-xcrun swiftc "${COMMON_SWIFT[@]}" \
+xcrun --sdk iphoneos swiftc "${COMMON_SWIFT[@]}" \
     -swift-version 6 \
     -O \
     -emit-library -static \
@@ -49,7 +49,7 @@ xcrun swiftc "${COMMON_SWIFT[@]}" \
     -o "$LIBS/libPartyUI.a" \
     "${PARTY_SOURCES[@]}"
 
-xcrun swiftc "${COMMON_SWIFT[@]}" \
+xcrun --sdk iphoneos swiftc "${COMMON_SWIFT[@]}" \
     -swift-version 5 \
     -O \
     -emit-library -static \
@@ -59,7 +59,7 @@ xcrun swiftc "${COMMON_SWIFT[@]}" \
     -o "$LIBS/libZIPFoundation.a" \
     "${ZIP_SOURCES[@]}"
 
-xcrun clang \
+xcrun --sdk iphoneos clang \
     -target "$TARGET" \
     -isysroot "$SDK" \
     -fPIC \
@@ -67,7 +67,7 @@ xcrun clang \
     -c "$MOND/mond/exploit/bad_query/bad_query.c" \
     -o "$OBJ/mond_bad_query.o"
 
-xcrun swiftc "${COMMON_SWIFT[@]}" \
+xcrun --sdk iphoneos swiftc "${COMMON_SWIFT[@]}" \
     -swift-version 5 \
     -default-isolation MainActor \
     -O \
@@ -92,7 +92,7 @@ xcrun swiftc "${COMMON_SWIFT[@]}" \
     -framework AVKit \
     -framework AVFoundation \
     -framework ImageIO \
-    -framework Compression \
+    -lcompression \
     -lz \
     -Xlinker -install_name \
     -Xlinker @rpath/Mond2Embedded.dylib \
