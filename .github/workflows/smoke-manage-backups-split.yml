@@ -1,0 +1,28 @@
+name: Smoke ManageBackups Split
+
+on:
+  push:
+    branches: [ mond-2.1-split-smoke ]
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source and submodules
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Apply compiler-only split
+        run: |
+          set -euxo pipefail
+          bash scripts/patch-byetunes-manage-backups-typecheck.sh
+          bash scripts/verify-byetunes-manage-backups-typecheck-split.sh
+          git diff --check -- ByeTunes/MusicManager/ManageBackupsView.swift
+
+      - name: Parse transformed Swift when Swift is available
+        run: |
+          set -euxo pipefail
+          if command -v swiftc >/dev/null 2>&1; then
+            swiftc -frontend -parse ByeTunes/MusicManager/ManageBackupsView.swift
+          fi
