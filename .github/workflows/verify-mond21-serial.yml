@@ -56,15 +56,23 @@ jobs:
           grep -Fq "MOND_COMMIT=\"$MOND_COMMIT\"" scripts/stage-mond-2.0.sh
           test "$(cat Vendor/idevice/COMMIT)" = "$IDEVICE_COMMIT"
           test "$(cat Vendor/ssh/LIBSSH_COMMIT)" = "$LIBSSH_COMMIT"
-      - name: Serial full build
+      - name: Serial verbose full build
         run: |
           set -euxo pipefail
           export PATH="/opt/procursus/bin:$PATH"
           gmake clean || true
+          mkdir -p .theos
           set +e
-          THEOS_USE_PARALLEL_BUILDING=0 gmake -j1 all FINALPACKAGE=1 TARGET=iphone:clang:latest:16.0 2>&1 | tee .theos/serial-build.log
+          THEOS_USE_PARALLEL_BUILDING=0 gmake -j1 all \
+            FINALPACKAGE=1 \
+            TARGET=iphone:clang:latest:16.0 \
+            ADDITIONAL_SWIFTFLAGS=-v \
+            2>&1 | tee .theos/serial-build.log
           rc=${PIPESTATUS[0]}
           set -e
+          echo "===== SWIFT/PCH ERRORS ====="
+          grep -n -E 'generate-pch|swift-frontend|error:|fatal error:' .theos/serial-build.log | tail -n 300 || true
+          echo "===== BUILD TAIL ====="
           tail -n 500 .theos/serial-build.log
           exit "$rc"
       - name: Verify split Mond 2.1 + outer dylib
