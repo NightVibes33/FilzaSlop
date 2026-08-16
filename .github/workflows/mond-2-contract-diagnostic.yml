@@ -17,22 +17,25 @@ jobs:
         run: |
           set -uo pipefail
           failed=0
+          REPORT="$RUNNER_TEMP/mond-contract-results.txt"
+          : > "$REPORT"
+          report() { echo "$*" | tee -a "$REPORT"; }
           check() {
             local name="$1"
             shift
             if "$@"; then
-              echo "PASS: $name"
+              report "PASS: $name"
             else
-              echo "FAIL: $name"
+              report "FAIL: $name"
               failed=1
             fi
           }
           absent() {
             local path="$1"
             if test ! -e "$path"; then
-              echo "PASS: absent $path"
+              report "PASS: absent $path"
             else
-              echo "FAIL: stale file exists $path"
+              report "FAIL: stale file exists $path"
               failed=1
             fi
           }
@@ -53,26 +56,37 @@ jobs:
           absent scripts/patch-mond-ios27-keys.sh
           absent scripts/patch-mond-token-button.sh
 
-          if git grep -Fn 'FILZA_IOS27_GESTALT_KEYS_BEGIN'; then
-            echo 'FAIL: old iOS27 overlay marker remains'
+          overlay_marker='FILZA_'"IOS27_GESTALT_KEYS_BEGIN"
+          token_marker='Fresh sandbox token issued successfully. Mond has not consumed'" it."
+          if git grep -Fn "$overlay_marker" -- ':!.github/workflows/*' >> "$REPORT"; then
+            report 'FAIL: old iOS27 overlay marker remains outside workflows'
             failed=1
           else
-            echo 'PASS: no old iOS27 overlay marker'
+            report 'PASS: no old iOS27 overlay marker outside workflows'
           fi
-          if git grep -Fn 'Fresh sandbox token issued successfully. Mond has not consumed it.'; then
-            echo 'FAIL: old token rewrite marker remains'
+          if git grep -Fn "$token_marker" -- ':!.github/workflows/*' >> "$REPORT"; then
+            report 'FAIL: old token rewrite marker remains outside workflows'
             failed=1
           else
-            echo 'PASS: no old token rewrite marker'
+            report 'PASS: no old token rewrite marker outside workflows'
           fi
 
-          for forbidden in 'mond_map =' 'Generated/Mond' 're.sub(' 'write_text(' 'FILZA_IOS27_GESTALT_KEYS_BEGIN' 'lastFreshToken'; do
+          for forbidden in 'mond_map =' 'Generated/Mond' 're.sub(' 'write_text(' 'lastFreshToken'; do
             if grep -Fq "$forbidden" scripts/stage-mond-2.0.sh; then
-              echo "FAIL: staging rewrite marker: $forbidden"
+              report "FAIL: staging rewrite marker: $forbidden"
               failed=1
             else
-              echo "PASS: staging has no rewrite marker: $forbidden"
+              report "PASS: staging has no rewrite marker: $forbidden"
             fi
           done
 
+          cp "$REPORT" mond-contract-results.txt
           exit "$failed"
+      - name: Upload Mond contract results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mond-2-contract-results
+          path: mond-contract-results.txt
+          if-no-files-found: error
+          retention-days: 1
