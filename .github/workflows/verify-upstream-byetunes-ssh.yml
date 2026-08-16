@@ -86,8 +86,8 @@ jobs:
           test ! -e scripts/stage-mond-current.sh
           test ! -e scripts/patch-mond-ios27-keys.sh
           test ! -e scripts/patch-mond-token-button.sh
-          ! grep -R -Fq 'FILZA_IOS27_GESTALT_KEYS_BEGIN' . --exclude-dir=.git --exclude-dir=.theos
-          ! grep -R -Fq 'Fresh sandbox token issued successfully. Mond has not consumed it.' . --exclude-dir=.git --exclude-dir=.theos
+          ! git grep -Fq 'FILZA_''IOS27_GESTALT_KEYS_BEGIN'
+          ! git grep -Fq 'Fresh sandbox token issued successfully. Mond has not consumed'' it.'
 
       - name: Restore pinned SSH stack cache
         id: ssh-cache
