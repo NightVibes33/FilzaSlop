@@ -136,6 +136,11 @@ jobs:
           grep -Fq 'func cache_data_safe_offset' ThirdParty/mond-current/Upstream/helpers/mg.swift
           grep -Fq 'state.pb_granted = false' ThirdParty/mond-current/Upstream/exploit/unsbx.swift
           grep -Fq 'static let shared = AppState()' ThirdParty/mond-current/Upstream/helpers/utils.swift
+          grep -Fq 'Text("Run Exploit")' ThirdParty/mond-current/Upstream/views/app/SettingsView.swift
+          grep -Fq 'Text("Generate Token")' ThirdParty/mond-current/Upstream/views/app/SettingsView.swift
+          grep -Fq 'Text("Your sandbox token is invalid.")' ThirdParty/mond-current/Upstream/views/app/SettingsView.swift
+          grep -Fq 'Text("HouseArrest")' ThirdParty/mond-current/Upstream/views/app/ContentView.swift
+          grep -Fq 'Explore Tendies' ThirdParty/mond-current/Upstream/views/tweaks/posterboard/PosterView.swift
           grep -Fq 'private static func cache_extra' ThirdParty/mond-current/Generated/Mond/helpers_mg.swift
           grep -Fq 'state.pb_granted = false' ThirdParty/mond-current/Generated/Mond/exploit_unsbx.swift
           ! grep -R -Fq 'FILZA_IOS27_GESTALT_KEYS_BEGIN' ThirdParty/mond-current/Generated/Mond
@@ -148,11 +153,6 @@ jobs:
           grep -aFq 'MondEmbeddedHostFactory' "$DYLIB"
           grep -aFq 'constructed exact Mond 2.1 root at 500d76082f0ca021ddd591c05d129ebbc26c20df' "$DYLIB"
           grep -aFq 'full Mond 2.1 route installed commit=500d76082f0ca021ddd591c05d129ebbc26c20df' "$DYLIB"
-          grep -aFq 'Run Exploit' "$DYLIB"
-          grep -aFq 'Generate Token' "$DYLIB"
-          grep -aFq 'Your sandbox token is invalid.' "$DYLIB"
-          grep -aFq 'Explore Tendies' "$DYLIB"
-          grep -aFq 'HouseArrest' "$DYLIB"
           ! grep -aFq 'waiting for Run Exploit' "$DYLIB"
           shasum -a 256 "$DYLIB"
 
