@@ -1,65 +1,141 @@
-# FilzaSlop / Filza-27
+<div align="center">
 
-A jailed, sideloadable Filza fork for modern iOS that combines Filza with app/container management, ByeTunes music tools, Mond 2.1, WebDAV, SSH, and the 3105 patch workspace in one IPA.
+<img src="docs/assets/readme/hero.svg" alt="Filza 27" width="100%" />
 
-[![Verified IPA](https://github.com/NightVibes33/Filza-27/actions/workflows/verify-upstream-byetunes-ssh.yml/badge.svg?branch=main)](https://github.com/NightVibes33/Filza-27/actions/workflows/verify-upstream-byetunes-ssh.yml)
-[![Release](https://img.shields.io/github/v/release/NightVibes33/Filza-27?display_name=tag&label=latest)](https://github.com/NightVibes33/Filza-27/releases/latest)
+<br />
 
-## Download
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=18&duration=2600&pause=900&color=A78BFA&center=true&vCenter=true&repeat=true&width=780&lines=Filza+%E2%80%A2+Mond+2.1+%E2%80%A2+ByeTunes+%E2%80%A2+3105;WebDAV+%E2%80%A2+SSH+%E2%80%A2+arm64+%E2%80%A2+exact-SHA+verification;One+sideloadable+IPA.+One+seriously+capable+toolbox." alt="Typing animation" />
 
-### [Download the latest verified `Filza-27.ipa`](https://github.com/NightVibes33/Filza-27/releases/latest/download/Filza-27.ipa)
+<br />
 
-Every public `Filza-27.ipa` release is produced from an **exact-SHA green GitHub Actions build on `main`**. The release also includes `Filza-27-SHA256.txt` so the IPA can be verified after download.
+[![Verified IPA](https://img.shields.io/github/actions/workflow/status/NightVibes33/Filza-27/verify-upstream-byetunes-ssh.yml?branch=main&style=for-the-badge&label=VERIFIED%20IPA&logo=githubactions&logoColor=white)](https://github.com/NightVibes33/Filza-27/actions/workflows/verify-upstream-byetunes-ssh.yml)
+[![Latest Release](https://img.shields.io/github/v/release/NightVibes33/Filza-27?display_name=tag&style=for-the-badge&label=LATEST&color=8b5cf6)](https://github.com/NightVibes33/Filza-27/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/NightVibes33/Filza-27/total?style=for-the-badge&label=DOWNLOADS&color=0891b2)](https://github.com/NightVibes33/Filza-27/releases)
 
-> **This is not a full jailbreak.** FilzaSlop exposes only files and containers the app can actually access. It does not claim kernel read/write, unrestricted `/`, a root shell, an SPTM bypass, or a writable system volume.
+<br />
 
-## What's new — Mond 2.1 update
+[![Download Filza-27.ipa](https://img.shields.io/badge/DOWNLOAD-Filza--27.ipa-8B5CF6?style=for-the-badge&logo=apple&logoColor=white)](https://github.com/NightVibes33/Filza-27/releases/latest/download/Filza-27.ipa)
+[![Release Notes](https://img.shields.io/badge/READ-Release%20Notes-151821?style=for-the-badge&logo=readthedocs&logoColor=white)](RELEASE_NOTES.md)
 
-The current production tree now embeds the **full pinned Mond 2.1 source surface** instead of the older Filza-specific Mond implementation.
+<br />
 
-- Mond pinned to `rooootdev/mond@500d76082f0ca021ddd591c05d129ebbc26c20df`.
-- Full Mond 2.1 navigation and shared `AppState` lifecycle integrated.
-- **MobileGestalt**, **PosterBoard / Tendies**, and **HouseArrest / Santander** routes included.
-- **Run Exploit** and **Generate Token** use the upstream Mond 2.1 flow.
-- Mond 2.1 MobileGestalt CacheExtra / safe-offset fixes retained.
-- Mond 2.1 CMG grant-state fix retained.
-- Exact upstream source is preserved under `ThirdParty/mond-current/Upstream` for provenance.
-- Embedded source receives only mechanical module/symbol namespacing required to coexist inside Filza.
-- Sandbox SPI ABI forwarding is handled by `MondSandboxSPICompat.c` without rewriting Mond's behavior.
-- The complete arm64 Mond integration and Filza 4.11 IPA packaging are verified in GitHub Actions.
+**Modern iOS filesystem tooling with Filza, Mond 2.1, ByeTunes, 3105, WebDAV and SSH inside one sideloadable arm64 IPA.**
 
-See [`RELEASE_NOTES.md`](RELEASE_NOTES.md) for the release changelog that is automatically included in GitHub Releases.
+`Filza 4.11` · `Mond 2.1` · `arm64` · `iOS 18 / 26 / early 27` · `exact-SHA builds`
 
-## Included features
+</div>
 
-| Feature | Status |
+---
+
+## ✦ Everything in one place
+
+<img src="docs/assets/readme/feature-grid.svg" alt="Filza 27 feature grid" width="100%" />
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### ◇ Filza + 3105
+
+Browse files and reachable containers, inspect apps, recover icons and disk sizes where available, create/import/replace/archive content, and hand work directly into the `.3105` Patch Workspace.
+
+</td>
+<td width="50%" valign="top">
+
+### ◇ Mond 2.1
+
+Pinned upstream Mond 2.1 with **MobileGestalt**, **PosterBoard / Tendies**, **HouseArrest / Santander**, shared `AppState`, and upstream exploit/token controls.
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### ◇ ByeTunes
+
+Music library tooling, downloads, metadata editing, backups, restore/repair flows, multi-source metadata routing, and the restored pre-v2.4 YouTubeKit metadata path.
+
+</td>
+<td width="50%" valign="top">
+
+### ◇ Network tools
+
+In-process **WebDAV** and **SSH** servers expose the same filesystem access already available to the FilzaSlop process—without pretending the app has permissions it does not actually possess.
+
+</td>
+</tr>
+</table>
+
+---
+
+<div align="center">
+
+## ✦ Filza 27 — Mond 2.1
+
+### Current production update
+
+</div>
+
+> **Mond is now the full pinned 2.1 source surface, not the older Filza-specific implementation.** The exact upstream source is preserved for provenance, while only mechanical module/symbol namespacing is applied so it can coexist inside Filza.
+
+- **Mond:** `rooootdev/mond@500d76082f0ca021ddd591c05d129ebbc26c20df`
+- **Filza base:** anchored Filza 4.11 package
+- **3105:** `NightVibes33/3105@90ab4dd35823d58de10e6b8b78236e0e7e1ad32b`
+- **Architecture:** arm64
+- **Release policy:** exact-SHA verifier must be green before an IPA is published
+- **Integrity:** every release includes `Filza-27-SHA256.txt`
+
+<div align="center">
+
+[**View the full release notes →**](RELEASE_NOTES.md)
+
+</div>
+
+---
+
+## ✦ At a glance
+
+| Surface | Production status |
 | --- | --- |
-| Verified release IPA | ✅ Exact-SHA green build required |
-| Filza file browser | ✅ Included |
-| Apps Manager | ✅ 3105 1.0.1 integrated |
-| `.3105` Patch Workspace v2 | ✅ Integrated |
-| Music Library / ByeTunes | ✅ Integrated |
-| YouTube metadata provider | ✅ Restored and bundled |
-| Mond | ✅ Full pinned Mond 2.1 integration |
-| MobileGestalt editor | ✅ Included through Mond |
-| PosterBoard / Tendies | ✅ Included through Mond |
-| HouseArrest / Santander | ✅ Included through Mond |
-| WebDAV server | ✅ In-process server |
-| SSH server | ✅ In-process libssh server |
-| Home Screen quick actions | ✅ Apps Manager, Music Library, Gestalt Editor, Patches |
-| Full jailbreak / writable system volume | ❌ Not claimed |
+| **Filza file browser** | ✅ Included |
+| **Apps Manager** | ✅ 3105 1.0.1 integrated |
+| **`.3105` Patch Workspace v2** | ✅ Integrated |
+| **ByeTunes** | ✅ Integrated |
+| **YouTube metadata provider** | ✅ Restored + bundled |
+| **Mond** | ✅ Full pinned Mond 2.1 |
+| **MobileGestalt** | ✅ Mond route |
+| **PosterBoard / Tendies** | ✅ Mond route |
+| **HouseArrest / Santander** | ✅ Mond route |
+| **WebDAV** | ✅ In-process server |
+| **SSH** | ✅ In-process libssh server |
+| **Home Screen quick actions** | ✅ Apps · Music · Gestalt · Patches |
+| **Full jailbreak / writable system volume** | ❌ Not claimed |
 
-## Compatibility
+---
 
-This fork targets the modern iOS behavior used by its bundled container-access methods, including iOS 18, iOS 26, and early iOS 27 builds.
+## ✦ Compatibility
 
-For iOS 27, the useful `bad_query` behavior is associated with beta 1–4. Do not assume the same access on beta 5 or newer. Exact access can vary by device and build, so FilzaSlop validates real file/directory access instead of treating a returned handle as automatic success.
+<div align="center">
 
-## Install
+![iOS 18](https://img.shields.io/badge/iOS-18-171A23?style=for-the-badge&logo=apple&logoColor=white)
+![iOS 26](https://img.shields.io/badge/iOS-26-171A23?style=for-the-badge&logo=apple&logoColor=white)
+![iOS 27 beta 1-4](https://img.shields.io/badge/iOS%2027-%CE%B21%E2%80%93%CE%B24-171A23?style=for-the-badge&logo=apple&logoColor=white)
+![arm64](https://img.shields.io/badge/ARCH-arm64-171A23?style=for-the-badge)
+
+</div>
+
+The useful `bad_query` behavior associated with iOS 27 is expected on **beta 1–4**, not beta 5 or newer. Actual access varies by hardware and OS build, so FilzaSlop validates real file/directory access rather than treating a returned handle as automatic success.
+
+> [!IMPORTANT]
+> **Filza 27 is not a full jailbreak.** It does not claim kernel read/write, unrestricted `/`, a root shell, SPTM bypass, or a writable system volume.
+
+---
+
+## ✦ Install
 
 1. Download the latest verified [`Filza-27.ipa`](https://github.com/NightVibes33/Filza-27/releases/latest/download/Filza-27.ipa).
 2. Sideload it with your preferred signing method.
-3. Keep the base app identity when your signer allows it:
+3. Keep the base identity when your signer permits it:
 
 ```text
 com.apple.mobile.MobileHouseArrest
@@ -67,85 +143,74 @@ com.apple.mobile.MobileHouseArrest
 
 Changing that bundle identifier can break MobileHouseArrest-dependent behavior.
 
-## Main tools
+---
 
-### Apps Manager / 3105
+<details>
+<summary><b>✦ Mond 2.1 / Gestalt technical details</b></summary>
 
-Apps Manager embeds **3105 1.0.1**, pinned to:
+<br />
 
-```text
-NightVibes33/3105@90ab4dd35823d58de10e6b8b78236e0e7e1ad32b
-```
-
-It includes application search, icon and disk-size recovery where available, container browsing, per-tab navigation, file preview, create/rename/import/replace/delete operations, ZIP creation/extraction, and Patch Workspace handoff.
-
-### Patches
-
-The embedded **3105 Patch Workspace v2** supports portable `.3105` projects, schema-v2 workspaces, legacy v1 decoding, bundle-ID targets, directory targets, import/export, backups, receipts, transaction journals, and restore flows.
-
-### Music Library / ByeTunes
-
-ByeTunes is embedded directly into FilzaSlop and includes library browsing, downloads, queue persistence, backups, restore/repair tools, metadata editing, and multi-source metadata routing.
-
-The current build also restores the known working pre-v2.4 YouTubeKit metadata path as the first free YouTube provider while retaining the current ByeTunes integration. Required JavaScript solver resources are packaged inside the IPA.
-
-### Mond 2.1 / Gestalt Editor
-
-Mond 2.1 is staged from exact upstream source and embedded into the Filza runtime. Available routes include:
+Mond 2.1 is staged from exact upstream source and embedded into the Filza runtime. Its exposed routes include:
 
 - MobileGestalt
 - PosterBoard / Tendies
 - HouseArrest / Santander
 - Settings / exploit controls
 
-The two exposed access methods are:
+Access-method choices exposed by Mond:
 
-- `bad_query`
-- `cmg`
+```text
+bad_query
+cmg
+```
 
-The MobileGestalt cache used by the editor is:
+MobileGestalt cache path:
 
 ```text
 /private/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist
 ```
 
-The editor includes newer iOS 27 capability mappings alongside the existing Dynamic Island, Always-On Display, Camera Control, Action Button, Stage Manager, Apple Intelligence eligibility, internal-feature, and related controls.
+The editor includes newer iOS 27 capability mappings alongside Dynamic Island, Always-On Display, Camera Control, Action Button, Stage Manager, Apple Intelligence eligibility, internal-feature, and related controls.
+
+</details>
+
+<details>
+<summary><b>✦ WebDAV + SSH</b></summary>
+
+<br />
 
 ### WebDAV
 
-Enable WebDAV from:
-
-**Preferences → Advanced options → Enable WebDAV server**
-
-Default port:
+Enable from **Preferences → Advanced options → Enable WebDAV server**.
 
 ```text
-11111
+Default port: 11111
 ```
 
-Accept the iOS Local Network permission prompt when requested. Because this is an app-hosted service, iOS may suspend it when the app is backgrounded.
+Accept the Local Network permission prompt when requested. iOS can suspend this app-hosted service while the app is backgrounded.
 
 ### SSH
 
-Open **Preferences → SSH SERVER** to configure the in-process libssh server.
-
-Default port:
+Open **Preferences → SSH SERVER**.
 
 ```text
-2222
+Default port: 2222
 ```
 
-Set a password before enabling public-facing authentication. Filesystem permissions over SSH are the same permissions the FilzaSlop process itself has.
+Set a password before enabling public-facing authentication. SSH filesystem permissions are the same permissions available to the FilzaSlop process itself.
 
-## Logs
+</details>
 
-Runtime logs are stored under:
+<details>
+<summary><b>✦ Runtime logs</b></summary>
+
+<br />
 
 ```text
 Documents/FilzaSlop Logs/
 ```
 
-Useful files include:
+Key files:
 
 ```text
 Runtime.log
@@ -154,59 +219,66 @@ SSHStatus.txt
 ByeTunesEmbedStage.txt
 ```
 
-## Verification and builds
+</details>
 
-The installable IPA workflow is:
+<details>
+<summary><b>✦ Build + release verification</b></summary>
+
+<br />
+
+Primary verifier:
 
 ```text
 .github/workflows/verify-upstream-byetunes-ssh.yml
 ```
 
-It verifies pinned dependencies, stages Mond 2.1 / 3105 / ByeTunes sources and resources, builds the arm64 runtime, packages the anchored Filza base IPA, verifies the package, and uploads the exact artifact.
+It validates pinned dependencies, stages Mond / 3105 / ByeTunes sources and resources, builds the arm64 runtime, packages the anchored Filza base IPA, verifies the package, and uploads the exact artifact.
 
-After that succeeds, the release workflow:
+Release publisher:
 
 ```text
 .github/workflows/publish-green-ipa-release.yml
 ```
 
-waits for the verifier at the **same commit SHA**, downloads that exact artifact, validates it, calculates SHA-256, and publishes:
+The publisher waits for the verifier at the **same commit SHA**, downloads that exact artifact, validates it, calculates SHA-256, and publishes:
 
 ```text
 Filza-27.ipa
 Filza-27-SHA256.txt
 ```
 
-The release body is generated from [`RELEASE_NOTES.md`](RELEASE_NOTES.md) plus the exact workflow run and commit SHA used for the IPA.
+The GitHub Release body is built from [`RELEASE_NOTES.md`](RELEASE_NOTES.md) plus the exact verifier run and commit SHA.
 
-## Current limitations
+</details>
+
+<details>
+<summary><b>✦ Current limitations</b></summary>
+
+<br />
 
 - A green Actions build proves compilation, linking, packaging, and artifact verification; it cannot prove every private API behaves identically on every device/build.
-- `/System/Library` can be readable while remaining on iOS's signed read-only system volume.
+- `/System/Library` can be readable while still living on iOS's signed read-only system volume.
 - Access to an App Group or data container does not imply access to the entire filesystem.
 - Kernel read/write is not established by this project.
 - No full jailbreak, root shell, SPTM bypass, or system-volume remount is claimed.
-- WebDAV and SSH are app-hosted services and can be suspended in the background.
+- WebDAV and SSH are app-hosted services and may be suspended in the background.
 
-## Upstream projects and credits
+</details>
 
-FilzaSlop combines work from multiple open-source projects. Their upstream licenses and notices remain part of the repository.
+---
 
-- [34306/FilzaJailedDS](https://github.com/34306/FilzaJailedDS)
-- [0xjohnnydev/FilzaSlop](https://github.com/0xjohnnydev/FilzaSlop)
-- [0xjohnnydev/MobileHouseArrest-PoC](https://github.com/0xjohnnydev/MobileHouseArrest-PoC)
-- [forcequitOS/bad_query](https://github.com/forcequitOS/bad_query)
-- [rooootdev/mond](https://github.com/rooootdev/mond)
-- [YangJiiii/3105](https://github.com/YangJiiii/3105)
-- [NightVibes33/3105](https://github.com/NightVibes33/3105)
-- [EduAlexxis/ByeTunes](https://github.com/EduAlexxis/ByeTunes)
-- [swisspol/GCDWebServer](https://github.com/swisspol/GCDWebServer)
-- [libssh](https://www.libssh.org/)
-- XPF and ChOma contributors
-- CrazyMind90
-- `SerStars/nugget-wallpapers`
-- mightycooldude12
+## ✦ Upstream & credits
 
-## Research note
+<div align="center">
 
-This repository includes compatibility and filesystem-access research for modern iOS. Those experiments should be treated as research features, not as proof of unrestricted system access.
+[FilzaJailedDS](https://github.com/34306/FilzaJailedDS) · [FilzaSlop](https://github.com/0xjohnnydev/FilzaSlop) · [MobileHouseArrest-PoC](https://github.com/0xjohnnydev/MobileHouseArrest-PoC) · [bad_query](https://github.com/forcequitOS/bad_query) · [mond](https://github.com/rooootdev/mond) · [3105](https://github.com/YangJiiii/3105) · [ByeTunes](https://github.com/EduAlexxis/ByeTunes) · [GCDWebServer](https://github.com/swisspol/GCDWebServer) · [libssh](https://www.libssh.org/)
+
+<sub>XPF / ChOma contributors · CrazyMind90 · SerStars/nugget-wallpapers · mightycooldude12</sub>
+
+<br /><br />
+
+**Filza 27** · filesystem research for modern iOS
+
+<sub>This branch is a README visual concept preview. Production source behavior is unchanged.</sub>
+
+</div>
