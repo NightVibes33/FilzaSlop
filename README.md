@@ -52,7 +52,7 @@
 
 <br />
 
-[**Download**](#download) · [**Filza Core**](#filza-core) · [**Scene**](#scene) · [**Compatibility**](#compatibility) · [**Install**](#install)
+[**Download**](#download) · [**Filza Core**](#filza-core) · [**Scene**](#scene) · [**Project Pulse**](#project-pulse) · [**Compatibility**](#compatibility) · [**Install**](#install)
 
 </div>
 
@@ -88,6 +88,28 @@ Filza 27 is built around the **file manager itself**. The visual style can be lo
 
 </td>
 </tr>
+<tr>
+<td width="50%" valign="top">
+
+### ◇ Inspect
+
+- preview supported files
+- inspect paths and directory contents
+- recover app metadata where access permits
+- work with real returned filesystem state
+
+</td>
+<td width="50%" valign="top">
+
+### ⌁ Work
+
+- import files into reachable locations
+- package and extract archives
+- move content between reachable paths
+- use one sideloaded app as the working surface
+
+</td>
+</tr>
 </table>
 
 ---
@@ -104,7 +126,44 @@ Every public IPA is released only after the verifier succeeds for the **same com
 
 `Filza-27.ipa` · `Filza-27-SHA256.txt`
 
+<br />
+
+[![Release](https://img.shields.io/github/v/release/NightVibes33/Filza-27?style=flat-square&label=release&labelColor=111827&color=A855F7)](https://github.com/NightVibes33/Filza-27/releases/latest)
+[![Verifier](https://img.shields.io/github/actions/workflow/status/NightVibes33/Filza-27/verify-upstream-byetunes-ssh.yml?branch=main&style=flat-square&label=verifier&labelColor=111827&color=7C3AED)](https://github.com/NightVibes33/Filza-27/actions/workflows/verify-upstream-byetunes-ssh.yml)
+[![Last Commit](https://img.shields.io/github/last-commit/NightVibes33/Filza-27?style=flat-square&label=main&labelColor=111827&color=581C87)](https://github.com/NightVibes33/Filza-27/commits/main)
+
 </div>
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### `RELEASE CHANNEL`
+
+```text
+asset      Filza-27.ipa
+arch       arm64
+branch     main
+gate       exact-SHA verifier
+integrity  SHA-256
+```
+
+</td>
+<td width="50%" valign="top">
+
+### `BUILD IDENTITY`
+
+```text
+base       Filza 4.11
+format     unsigned IPA
+install    sideload
+runtime    modern iOS
+focus      filesystem
+```
+
+</td>
+</tr>
+</table>
 
 > [!IMPORTANT]
 > **Filza 27 is not presented as a full jailbreak.** Reachable containers or readable system paths do not automatically mean kernel read/write, unrestricted `/`, a root shell, SPTM bypass, or a writable signed system volume.
@@ -136,16 +195,87 @@ Every public IPA is released only after the verifier succeeds for the **same com
 
 ---
 
-## Live Repo
+## Project Pulse
 
 <div align="center">
 
 [![Views](https://hits.sh/github.com/NightVibes33/Filza-27.svg?style=for-the-badge&label=VIEWS&color=6D28D9&labelColor=09090b)](https://hits.sh/github.com/NightVibes33/Filza-27/)
 [![Forks](https://img.shields.io/github/forks/NightVibes33/Filza-27?style=for-the-badge&label=FORKS&labelColor=09090b&color=581C87)](https://github.com/NightVibes33/Filza-27/forks)
+[![Watchers](https://img.shields.io/github/watchers/NightVibes33/Filza-27?style=for-the-badge&label=WATCHERS&labelColor=09090b&color=4C1D95)](https://github.com/NightVibes33/Filza-27/watchers)
+[![Contributors](https://img.shields.io/github/contributors/NightVibes33/Filza-27?style=for-the-badge&label=CONTRIBUTORS&labelColor=09090b&color=312E81)](https://github.com/NightVibes33/Filza-27/graphs/contributors)
+
+[![Issues](https://img.shields.io/github/issues/NightVibes33/Filza-27?style=for-the-badge&label=ISSUES&labelColor=09090b&color=6D28D9)](https://github.com/NightVibes33/Filza-27/issues)
+[![PRs](https://img.shields.io/github/issues-pr/NightVibes33/Filza-27?style=for-the-badge&label=PRS&labelColor=09090b&color=581C87)](https://github.com/NightVibes33/Filza-27/pulls)
 [![Updated](https://img.shields.io/github/last-commit/NightVibes33/Filza-27?style=for-the-badge&label=UPDATED&labelColor=09090b&color=4C1D95)](https://github.com/NightVibes33/Filza-27/commits/main)
 [![Size](https://img.shields.io/github/repo-size/NightVibes33/Filza-27?style=for-the-badge&label=SIZE&labelColor=09090b&color=312E81)](https://github.com/NightVibes33/Filza-27)
 
+<br /><br />
+
+<img src="https://github-readme-stats.vercel.app/api/pin/?username=NightVibes33&repo=Filza-27&theme=midnight-purple&hide_border=true&bg_color=0d1117" alt="Filza 27 repository card" />
+
+<br /><br />
+
+<img src="https://api.star-history.com/svg?repos=NightVibes33/Filza-27&type=Date&theme=dark" width="92%" alt="Filza 27 star history" />
+
+<br /><br />
+
+### Contributors
+
+<a href="https://github.com/NightVibes33/Filza-27/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=NightVibes33/Filza-27" alt="Filza 27 contributors" />
+</a>
+
 </div>
+
+---
+
+## Project DNA
+
+<div align="center">
+
+![Objective-C](https://img.shields.io/badge/Objective--C-primary-7C3AED?style=for-the-badge&logo=apple&logoColor=white)
+![Shell](https://img.shields.io/badge/Shell-build%20tooling-581C87?style=for-the-badge&logo=gnubash&logoColor=white)
+![C](https://img.shields.io/badge/C-runtime-4C1D95?style=for-the-badge&logo=c&logoColor=white)
+![Swift](https://img.shields.io/badge/Swift-UI%20%2B%20integration-6D28D9?style=for-the-badge&logo=swift&logoColor=white)
+
+![Makefile](https://img.shields.io/badge/Makefile-build-312E81?style=flat-square)
+![JavaScript](https://img.shields.io/badge/JavaScript-runtime%20resources-4C1D95?style=flat-square&logo=javascript&logoColor=white)
+![arm64](https://img.shields.io/badge/target-arm64-581C87?style=flat-square)
+![IPA](https://img.shields.io/badge/package-IPA-7C3AED?style=flat-square)
+
+</div>
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### `FILESYSTEM`
+
+```text
+browse      ✓
+inspect     ✓
+preview     ✓
+archive     ✓
+import      ✓
+manage      ✓
+```
+
+</td>
+<td width="50%" valign="top">
+
+### `RELEASE`
+
+```text
+compile     arm64
+verify      exact SHA
+checksum    SHA-256
+publish     GitHub Release
+asset       Filza-27.ipa
+```
+
+</td>
+</tr>
+</table>
 
 ---
 
