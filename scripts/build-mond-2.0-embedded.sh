@@ -98,24 +98,54 @@ xcrun --sdk iphoneos swiftc "${COMMON_SWIFT[@]}" \
     -Xlinker @rpath/Mond2Embedded.dylib \
     -o "$OUT"
 
-test -s "$OUT"
-test "$(lipo -archs "$OUT")" = "arm64"
-otool -L "$OUT" | grep -F '@rpath/Mond2Embedded.dylib'
-! otool -L "$OUT" | grep -E '/(PartyUI|ZIPFoundation)'
+require() {
+    local label="$1"
+    shift
+    echo "[Mond2 verify] $label"
+    if ! "$@"; then
+        echo "[Mond2 verify] FAILED: $label" >&2
+        exit 1
+    fi
+}
+
+require_grep() {
+    local label="$1" needle="$2" file="$3"
+    echo "[Mond2 verify] $label"
+    if ! grep -aFq "$needle" "$file"; then
+        echo "[Mond2 verify] FAILED: $label (missing: $needle)" >&2
+        exit 1
+    fi
+}
+
+require "dylib exists" test -s "$OUT"
+require "arm64 architecture" test "$(lipo -archs "$OUT")" = "arm64"
+require_grep "install name" '@rpath/Mond2Embedded.dylib' <(otool -L "$OUT")
+
+echo "[Mond2 verify] no dynamic PartyUI/ZIPFoundation dependency"
+if otool -L "$OUT" | grep -E '/(PartyUI|ZIPFoundation)'; then
+    echo "[Mond2 verify] FAILED: PartyUI or ZIPFoundation remained dynamically linked" >&2
+    exit 1
+fi
 
 # Exact 2.0 feature/lifecycle markers. These must come from the untouched
 # upstream files; the wrapper contributes only the explicit provenance marker.
-grep -aFq 'Explore Tendies' "$OUT"
-grep -aFq 'HouseArrest' "$OUT"
-grep -aFq 'Run Exploit' "$OUT"
-grep -aFq 'Generate Token' "$OUT"
-grep -aFq 'exact upstream mond 2.0 runtime configured commit=87b38b2726160c6d1cfacbbfa834a2572d7ca333' "$OUT"
-nm "$OUT" | grep -Eq '[[:space:]]_main$'
+require_grep "Tendies route" 'Explore Tendies' "$OUT"
+require_grep "HouseArrest route" 'HouseArrest' "$OUT"
+require_grep "Run Exploit action" 'Run Exploit' "$OUT"
+require_grep "Generate Token action" 'Generate Token' "$OUT"
+require_grep "external host provenance" 'exact upstream mond 2.0 runtime configured commit=87b38b2726160c6d1cfacbbfa834a2572d7ca333' "$OUT"
+
+echo "[Mond2 verify] upstream @main symbol"
+if ! nm "$OUT" | grep -Eq '[[:space:]]_main$'; then
+    echo "[Mond2 verify] FAILED: upstream @main symbol not exported" >&2
+    nm "$OUT" | grep -E 'main|Mond2Embedded' | head -n 80 || true
+    exit 1
+fi
 
 # Compilation is not allowed to mutate the staged upstream repositories.
-test -z "$(git -C "$MOND" status --porcelain)"
-test -z "$(git -C "$PARTYUI" status --porcelain)"
-test -z "$(git -C "$ZIPFOUNDATION" status --porcelain)"
+require "Mond repo remains git-clean" test -z "$(git -C "$MOND" status --porcelain)"
+require "PartyUI repo remains git-clean" test -z "$(git -C "$PARTYUI" status --porcelain)"
+require "ZIPFoundation repo remains git-clean" test -z "$(git -C "$ZIPFOUNDATION" status --porcelain)"
 
 shasum -a 256 "$OUT"
 echo "Built isolated exact Mond 2.0 dylib without modifying upstream source"
