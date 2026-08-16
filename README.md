@@ -1,8 +1,8 @@
 <div align="center">
 
-# 𖤐 FILZA 27 𖤐
+# 👻 FILZA 27
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=20&duration=1900&pause=550&color=A855F7&center=true&vCenter=true&repeat=true&width=900&lines=MODERN+iOS+FILE+BROWSER;BROWSE+%E2%80%A2+INSPECT+%E2%80%A2+MANAGE+%E2%80%A2+ARCHIVE;SIDELOADABLE+ARM64+FILZA;FILESYSTEM+TOOLS+FOR+MODERN+iOS" alt="Filza 27 typing animation" />
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=20&duration=1800&pause=500&color=A855F7&center=true&vCenter=true&repeat=true&width=900&lines=FILE+BROWSER+%2F%2F+GHOST+MODE;BROWSE+%E2%80%A2+INSPECT+%E2%80%A2+MANAGE+%E2%80%A2+ARCHIVE;SIDELOADABLE+ARM64+FILZA;MODERN+iOS+FILESYSTEM+TOOLS" alt="Filza 27 typing animation" />
 
 <br />
 
@@ -14,26 +14,26 @@
 </a>
 </td>
 <td align="center" width="50%">
-<a href="https://giphy.com/gifs/internet-rainbow-apple-l44Qqz6gO6JiVV3pu">
-<img src="https://media.giphy.com/media/l44Qqz6gO6JiVV3pu/source.gif" width="100%" alt="Retro Macintosh hello animation" />
+<a href="https://giphy.com/gifs/pokemon-oKXaUOOwStqnDddLnA">
+<img src="https://media.giphy.com/media/oKXaUOOwStqnDddLnA/giphy.gif" width="100%" alt="Official Pokemon Gengar animation" />
 </a>
 </td>
 </tr>
 </table>
 
-<sub>ghost type energy // classic Apple energy // modern Filza</sub>
+<sub>ghost type energy // purple everything // Filza first</sub>
 
 <br /><br />
 
-[![Verified IPA](https://img.shields.io/github/actions/workflow/status/NightVibes33/Filza-27/verify-upstream-byetunes-ssh.yml?branch=main&style=for-the-badge&label=VERIFIED%20IPA&logo=githubactions&logoColor=white&labelColor=09090b&color=7c3aed)](https://github.com/NightVibes33/Filza-27/actions/workflows/verify-upstream-byetunes-ssh.yml)
-[![Latest Release](https://img.shields.io/github/v/release/NightVibes33/Filza-27?display_name=tag&style=for-the-badge&label=LATEST&labelColor=09090b&color=9333ea)](https://github.com/NightVibes33/Filza-27/releases/latest)
-[![Downloads](https://img.shields.io/github/downloads/NightVibes33/Filza-27/total?style=for-the-badge&label=DOWNLOADS&labelColor=09090b&color=7e22ce)](https://github.com/NightVibes33/Filza-27/releases)
+[![Verified IPA](https://img.shields.io/github/actions/workflow/status/NightVibes33/Filza-27/verify-upstream-byetunes-ssh.yml?branch=main&style=for-the-badge&label=VERIFIED%20IPA&logo=githubactions&logoColor=white&labelColor=09090b&color=7C3AED)](https://github.com/NightVibes33/Filza-27/actions/workflows/verify-upstream-byetunes-ssh.yml)
+[![Latest Release](https://img.shields.io/github/v/release/NightVibes33/Filza-27?display_name=tag&style=for-the-badge&label=LATEST&labelColor=09090b&color=9333EA)](https://github.com/NightVibes33/Filza-27/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/NightVibes33/Filza-27/total?style=for-the-badge&label=DOWNLOADS&labelColor=09090b&color=A855F7)](https://github.com/NightVibes33/Filza-27/releases)
 
 <br />
 
 [![DOWNLOAD IPA](https://img.shields.io/badge/%E2%86%93%20DOWNLOAD-Filza--27.ipa-A855F7?style=for-the-badge&labelColor=111827)](https://github.com/NightVibes33/Filza-27/releases/latest/download/Filza-27.ipa)
-[![RELEASE NOTES](https://img.shields.io/badge/%E2%9C%A6-RELEASE%20NOTES-6D28D9?style=for-the-badge&labelColor=111827)](RELEASE_NOTES.md)
-[![ACTIONS](https://img.shields.io/badge/%E2%9A%A1-ACTIONS-4C1D95?style=for-the-badge&labelColor=111827)](https://github.com/NightVibes33/Filza-27/actions)
+[![RELEASE NOTES](https://img.shields.io/badge/%E2%9C%A6-RELEASE%20NOTES-7C3AED?style=for-the-badge&labelColor=111827)](RELEASE_NOTES.md)
+[![ACTIONS](https://img.shields.io/badge/%E2%9A%A1-ACTIONS-581C87?style=for-the-badge&labelColor=111827)](https://github.com/NightVibes33/Filza-27/actions)
 
 <br />
 
@@ -45,17 +45,17 @@
 
 ---
 
-## ✦ Filza, first
+## 👻 Filza Core
 
-Filza 27 is built around the file manager itself — not around a pile of feature names.
+Filza 27 is built around the file manager itself. The extra integrations stay secondary; **browsing and managing files is the point.**
 
 <table>
 <tr>
 <td width="50%" valign="top">
 
-### 📁 Browse
+### ◉ Browse
 
-Navigate files and directories the process can actually reach, with proper directory listings instead of fake success states.
+Navigate files and directories the process can actually reach, with real directory listings instead of fake success states.
 
 - filesystem browsing
 - reachable app data containers
@@ -66,9 +66,9 @@ Navigate files and directories the process can actually reach, with proper direc
 </td>
 <td width="50%" valign="top">
 
-### 🛠 Manage
+### ✦ Manage
 
-Use Filza as an actual working file manager rather than a read-only viewer.
+Use Filza as a working file manager rather than a read-only viewer.
 
 - create / rename / delete
 - import / replace
@@ -85,7 +85,7 @@ Use Filza as an actual working file manager rather than a read-only viewer.
 
 <div align="center">
 
-## ↓ Download
+## ↓ Catch the latest build
 
 # [`Filza-27.ipa`](https://github.com/NightVibes33/Filza-27/releases/latest/download/Filza-27.ipa)
 
@@ -102,11 +102,11 @@ Every public IPA is released only after the verifier succeeds for the **same com
 
 ---
 
-## ◇ What it feels like
+## 🟣 Ghost Mode
 
 <table>
 <tr>
-<td width="50%" valign="top">
+<td width="48%" valign="top">
 
 ### `FILZA // READY`
 
@@ -122,10 +122,14 @@ Every public IPA is released only after the verifier succeeds for the **same com
 ╰──────────────────────────────╯
 ```
 
+`theme:` **ghost**  
+`accent:` **purple**  
+`main character:` **Filza**
+
 </td>
-<td width="50%" align="center">
-<a href="https://giphy.com/gifs/pokemon-oKXaUOOwStqnDddLnA">
-<img src="https://media.giphy.com/media/oKXaUOOwStqnDddLnA/giphy.gif" width="100%" alt="Official Pokemon Gengar animation" />
+<td width="52%" align="center" valign="middle">
+<a href="https://giphy.com/gifs/pokemon-gengar-mimikyu-pokemon-tcg-9CtPkMaR4Yp3NQOZ6u">
+<img src="https://media.giphy.com/media/9CtPkMaR4Yp3NQOZ6u/giphy.gif" width="100%" alt="Official Pokemon Gengar and Mimikyu animation" />
 </a>
 </td>
 </tr>
@@ -137,10 +141,10 @@ Every public IPA is released only after the verifier succeeds for the **same com
 
 <div align="center">
 
-![iOS 18](https://img.shields.io/badge/iOS-18-111827?style=for-the-badge&logo=apple&logoColor=white)
-![iOS 26](https://img.shields.io/badge/iOS-26-111827?style=for-the-badge&logo=apple&logoColor=white)
-![iOS 27 beta 1-4](https://img.shields.io/badge/iOS%2027-%CE%B21%E2%80%93%CE%B24-312E81?style=for-the-badge&logo=apple&logoColor=white)
-![arm64](https://img.shields.io/badge/ARCH-arm64-4C1D95?style=for-the-badge)
+![iOS 18](https://img.shields.io/badge/iOS-18-1F172A?style=for-the-badge&logo=apple&logoColor=white)
+![iOS 26](https://img.shields.io/badge/iOS-26-2E1065?style=for-the-badge&logo=apple&logoColor=white)
+![iOS 27 beta 1-4](https://img.shields.io/badge/iOS%2027-%CE%B21%E2%80%93%CE%B24-4C1D95?style=for-the-badge&logo=apple&logoColor=white)
+![arm64](https://img.shields.io/badge/ARCH-arm64-581C87?style=for-the-badge)
 
 </div>
 
@@ -165,7 +169,7 @@ Changing the bundle identifier can break MobileHouseArrest-dependent behavior.
 ---
 
 <details>
-<summary><b>✦ Integrated extras</b></summary>
+<summary><b>👾 Integrated extras</b></summary>
 
 <br />
 
@@ -183,7 +187,7 @@ See [`RELEASE_NOTES.md`](RELEASE_NOTES.md) for the detailed current integration 
 </details>
 
 <details>
-<summary><b>✦ Technical / build details</b></summary>
+<summary><b>⚙️ Technical / build details</b></summary>
 
 <br />
 
@@ -210,7 +214,7 @@ Documents/FilzaSlop Logs/
 </details>
 
 <details>
-<summary><b>✦ Current limitations</b></summary>
+<summary><b>⚠️ Current limitations</b></summary>
 
 <br />
 
@@ -232,8 +236,14 @@ Documents/FilzaSlop Logs/
 
 <br />
 
-**FILZA 27**
+<a href="https://giphy.com/gifs/pokemon-oKXaUOOwStqnDddLnA">
+<img src="https://media.giphy.com/media/oKXaUOOwStqnDddLnA/giphy.gif" width="280" alt="Official Pokemon Gengar animation" />
+</a>
 
-<sub>modern iOS file browsing with a little too much personality 👻</sub>
+<br />
+
+**FILZA 27 // GHOST MODE**
+
+<sub>modern iOS file browsing with a little too much Gengar energy 👻</sub>
 
 </div>
