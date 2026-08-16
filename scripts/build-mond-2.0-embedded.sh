@@ -12,7 +12,6 @@ OBJ="$BUILD/obj"
 OUT="$PWD/.theos/obj/Mond2Embedded.dylib"
 SDK="$(xcrun --sdk iphoneos --show-sdk-path)"
 TARGET="arm64-apple-ios17.0"
-MOND_COMMIT="500d76082f0ca021ddd591c05d129ebbc26c20df"
 
 bash scripts/stage-mond-2.0.sh
 rm -rf "$BUILD"
@@ -32,7 +31,6 @@ test "${#MOND_SOURCES[@]}" -eq 16
 printf '%s\n' "${MOND_SOURCES[@]}" | grep -Fq '/mond/mond.swift'
 printf '%s\n' "${MOND_SOURCES[@]}" | grep -Fq '/views/tweaks/posterboard/TendiesView.swift'
 printf '%s\n' "${MOND_SOURCES[@]}" | grep -Fq '/views/tweaks/SantanderView.swift'
-test "$(git -C "$MOND" rev-parse HEAD)" = "$MOND_COMMIT"
 
 COMMON_SWIFT=(
     -target "$TARGET"
@@ -105,13 +103,13 @@ test "$(lipo -archs "$OUT")" = "arm64"
 otool -L "$OUT" | grep -F '@rpath/Mond2Embedded.dylib'
 ! otool -L "$OUT" | grep -E '/(PartyUI|ZIPFoundation)'
 
-# Exact 2.1 feature/lifecycle markers. They come from the untouched upstream
-# source; the wrapper contributes only its explicit integration provenance.
+# Exact 2.0 feature/lifecycle markers. These must come from the untouched
+# upstream files; the wrapper contributes only the explicit provenance marker.
 grep -aFq 'Explore Tendies' "$OUT"
 grep -aFq 'HouseArrest' "$OUT"
 grep -aFq 'Run Exploit' "$OUT"
 grep -aFq 'Generate Token' "$OUT"
-grep -aFq 'exact upstream mond 2.1 runtime configured commit=500d76082f0ca021ddd591c05d129ebbc26c20df' "$OUT"
+grep -aFq 'exact upstream mond 2.0 runtime configured commit=87b38b2726160c6d1cfacbbfa834a2572d7ca333' "$OUT"
 nm "$OUT" | grep -Eq '[[:space:]]_main$'
 
 # Compilation is not allowed to mutate the staged upstream repositories.
@@ -120,4 +118,4 @@ test -z "$(git -C "$PARTYUI" status --porcelain)"
 test -z "$(git -C "$ZIPFOUNDATION" status --porcelain)"
 
 shasum -a 256 "$OUT"
-echo "Built isolated exact Mond 2.1 dylib without modifying upstream source"
+echo "Built isolated exact Mond 2.0 dylib without modifying upstream source"

@@ -3,9 +3,8 @@ import SwiftUI
 import UIKit
 import UniformTypeIdentifiers
 import ObjectiveC.runtime
-import PartyUI
 
-// Integration boundary only. The Mond 2.1 source tree is compiled unchanged in
+// Integration boundary only. The Mond 2.0 source tree is compiled unchanged in
 // this same module. This host reproduces the standalone App lifecycle that
 // cannot become UIApplication's @main when Mond is embedded inside Filza.
 private enum Mond2EmbeddedRuntime {
@@ -21,8 +20,7 @@ private enum Mond2EmbeddedRuntime {
             dup2(pipe.fileHandleForWriting.fileDescriptor, STDOUT_FILENO)
         }
 
-        // Exact Mond 2.1 App initializer default.
-        UserDefaults.standard.register(defaults: ["method": "bad_query"])
+        UserDefaults.standard.register(defaults: ["exploit_method": "bad_query"])
         if UserDefaults.standard.bool(forKey: "ka_on") {
             keep_alive()
         }
@@ -39,13 +37,12 @@ private enum Mond2EmbeddedRuntime {
             method_exchangeImplementations(original, fixed)
         }
 
-        NSLog("[Filza/Mond] exact upstream mond 2.1 runtime configured commit=500d76082f0ca021ddd591c05d129ebbc26c20df")
+        NSLog("[Filza/Mond] exact upstream mond 2.0 runtime configured commit=87b38b2726160c6d1cfacbbfa834a2572d7ca333")
     }
 }
 
 private struct Mond2EmbeddedRoot: View {
-    // Exact Mond 2.1 lifecycle uses the shared AppState singleton.
-    @StateObject private var state = AppState.shared
+    @StateObject private var state = AppState()
 
     var body: some View {
         ContentView()
@@ -88,8 +85,9 @@ public final class Mond2EmbeddedHostFactory: NSObject {
         Mond2EmbeddedRuntime.configureOnce()
         let controller = UIHostingController(rootView: Mond2EmbeddedRoot())
 
-        // Filza owns UIApplication, so Mond must be presented modally. The host
-        // adds no Mond controls and does not modify any upstream Mond source.
+        // Filza owns UIApplication, so Mond must be presented modally. A page
+        // sheet supplies the system's native dismissal gesture without adding
+        // or changing any Mond controls or source code.
         controller.modalPresentationStyle = .pageSheet
         return controller
     }

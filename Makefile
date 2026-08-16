@@ -40,12 +40,11 @@ BYETUNES_SWIFT_FILES := $(shell find $(BYETUNES_ROOT) -type f -name '*.swift' ! 
 # Filza-only root/settings namespace and host glue.
 THREEONE_SWIFT_FILES := $(shell find $(THREEONE_ROOT)/Sources -type f -name '*.swift' -print)
 
-# Mond 2.1 is intentionally NOT compiled into this Swift module. Its exact
-# upstream source (500d76082f0ca021ddd591c05d129ebbc26c20df) is built unchanged
+# Mond 2.0 is intentionally NOT compiled into this Swift module. Its exact
+# upstream source (87b38b2726160c6d1cfacbbfa834a2572d7ca333) is built unchanged
 # as .theos/obj/Mond2Embedded.dylib by scripts/build-mond-2.0-embedded.sh.
-# The script name is retained for compatibility; it now stages/builds 2.1.
-# Keeping Mond isolated avoids source rewriting and symbol collisions with
-# Filza's independently pinned bad_query implementation.
+# Keeping it in a separate module avoids source rewriting and symbol collisions
+# with Filza's independently pinned bad_query implementation.
 FilzaApplySandboxExt_SWIFT_FILES = ByeTunesEmbeddedHost.swift ByeTunesMetadataCompat.swift ByeTunesDownloadParityCompat.swift Filza3105Host.swift $(THREEONE_SWIFT_FILES) $(BYETUNES_SWIFT_FILES) $(BYETUNES_ACTIVITY_SHARED)
 
 FilzaApplySandboxExt_CFLAGS = -I$(PWD)/compat -I$(PWD) -I$(PWD)/XPF/src -I$(PWD)/XPF/external/ChOma/include -I$(IDEVICE_VENDOR)/include -I$(PWD)/$(BAD_QUERY_ROOT)/bad_query -I$(PWD)/$(THREEONE_ROOT)/Sources \
@@ -68,8 +67,8 @@ FilzaApplySandboxExt_LIBRARIES = z xml2 sandbox sqlite3
 FilzaApplySandboxExt_INSTALL_TARGET_PROCESSES = Filza
 
 # Every transformation is explicit and ordered. Mond's own source is never
-# patched: the Mond-specific build step stages the immutable 2.1 commit and
-# compiles it as an isolated iOS 17 dylib with a separate host adapter.
+# patched: the only Mond-specific build step stages the immutable 2.0 commit and
+# compiles it as an isolated dylib with a separate host adapter.
 before-FilzaApplySandboxExt-all::
 	@bash scripts/build-mond-2.0-embedded.sh
 	@bash scripts/stage-3105-v1.sh
@@ -80,7 +79,7 @@ before-FilzaApplySandboxExt-all::
 	@bash scripts/patch-byetunes-background-provider-parity.sh
 	@bash scripts/patch-byetunes-download-provider-parity.sh
 	@bash scripts/patch-byetunes-device-library-save.sh
-	@test -s "$(MOND2_DYLIB)" || (echo "Missing exact Mond 2.1 embedded dylib" >&2; exit 1)
+	@test -s "$(MOND2_DYLIB)" || (echo "Missing exact Mond 2.0 embedded dylib" >&2; exit 1)
 	@test -s "$(IDEVICE_STATIC)" || (echo "Missing $(IDEVICE_STATIC). Run: bash scripts/build-idevice.sh" >&2; exit 1)
 	@test -d "$(BYETUNES_ROOT)" || (echo "Missing ByeTunes submodule. Run: git submodule update --init --recursive" >&2; exit 1)
 	@test -f "$(BYETUNES_ROOT)/ContentView.swift" || (echo "Incomplete ByeTunes submodule" >&2; exit 1)
@@ -105,10 +104,10 @@ before-FilzaApplySandboxExt-all::
 	@test -f "GestaltManager.m" || (echo "Missing GestaltManager.m" >&2; exit 1)
 	@test -f "FilzaMondBridge.m" || (echo "Missing FilzaMondBridge.m" >&2; exit 1)
 	@test -f "FilzaMainToolbarGestalt.m" || (echo "Missing FilzaMainToolbarGestalt.m" >&2; exit 1)
-	@test -f "Mond2EmbeddedHost.swift" || (echo "Missing Mond 2.1 host adapter" >&2; exit 1)
-	@test -f "scripts/stage-mond-2.0.sh" || (echo "Missing exact Mond 2.1 staging script" >&2; exit 1)
-	@test -f "scripts/build-mond-2.0-embedded.sh" || (echo "Missing exact Mond 2.1 build script" >&2; exit 1)
-	@test -f "ThirdParty/mond/UPSTREAM.md" || (echo "Missing Mond 2.1 provenance" >&2; exit 1)
+	@test -f "Mond2EmbeddedHost.swift" || (echo "Missing Mond 2.0 host adapter" >&2; exit 1)
+	@test -f "scripts/stage-mond-2.0.sh" || (echo "Missing exact Mond 2.0 staging script" >&2; exit 1)
+	@test -f "scripts/build-mond-2.0-embedded.sh" || (echo "Missing exact Mond 2.0 build script" >&2; exit 1)
+	@test -f "ThirdParty/mond/UPSTREAM.md" || (echo "Missing Mond 2.0 provenance" >&2; exit 1)
 	@test -f "Filza3105Host.swift" || (echo "Missing Filza3105Host.swift" >&2; exit 1)
 	@test -f "Filza3105Bridge.m" || (echo "Missing Filza3105Bridge.m" >&2; exit 1)
 	@test -f "scripts/stage-3105-v1.sh" || (echo "Missing pinned 3105 1.0 staging script" >&2; exit 1)
