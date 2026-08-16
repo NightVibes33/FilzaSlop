@@ -1,0 +1,85 @@
+name: Verify Mond 2.1 serial Filza build
+
+on:
+  push:
+    branches: [ mond-2.1-serial-verify ]
+
+jobs:
+  serial-build:
+    runs-on: macos-26-intel
+    env:
+      THEOS: ${{ github.workspace }}/theos
+      DEVELOPER_DIR: /Applications/Xcode_26.2.app/Contents/Developer
+      THEOS_COMMIT: 5280bd038207e14f8bd76f5417aa2fe641c03228
+      IDEVICE_COMMIT: 37ee77cf713f483551f3cf33ea8b2087a40058ca
+      LIBSSH_COMMIT: 07430deb9b97b751ec5ea5a7fc307f40bf042e0a
+      MBEDTLS_COMMIT: 068ff080b369adfac81509f9b57b2afabaf82dc5
+      MOND_COMMIT: 500d76082f0ca021ddd591c05d129ebbc26c20df
+    steps:
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: '26.2'
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - uses: dhinakg/procursus-action@main
+        with:
+          packages: ldid make
+      - uses: actions/cache@v4
+        id: theos-cache
+        with:
+          path: ${{ env.THEOS }}
+          key: theos-${{ runner.os }}-${{ runner.arch }}-${{ env.THEOS_COMMIT }}
+      - if: steps.theos-cache.outputs.cache-hit != 'true'
+        run: |
+          git clone --filter=blob:none https://github.com/theos/theos.git "$THEOS"
+          git -C "$THEOS" checkout --detach "$THEOS_COMMIT"
+          git -C "$THEOS" submodule update --init --recursive
+      - uses: actions/cache@v4
+        id: idevice-cache
+        with:
+          path: Vendor/idevice
+          key: idevice-ffi-${{ runner.os }}-${{ runner.arch }}-xcode26.2-ios26.2-${{ env.IDEVICE_COMMIT }}-${{ hashFiles('scripts/build-idevice.sh') }}
+      - if: steps.idevice-cache.outputs.cache-hit != 'true'
+        run: bash scripts/build-idevice.sh "$GITHUB_WORKSPACE/Vendor/idevice"
+      - uses: actions/cache@v4
+        id: ssh-cache
+        with:
+          path: Vendor/ssh
+          key: ssh-stack-${{ runner.os }}-${{ runner.arch }}-xcode26.2-ios26.2-${{ env.LIBSSH_COMMIT }}-${{ env.MBEDTLS_COMMIT }}-${{ hashFiles('scripts/build-ssh-stack.sh') }}
+      - if: steps.ssh-cache.outputs.cache-hit != 'true'
+        run: bash scripts/build-ssh-stack.sh "$GITHUB_WORKSPACE/Vendor/ssh"
+      - name: Verify exact 2.1 pin before build
+        run: |
+          set -euxo pipefail
+          grep -Fq "$MOND_COMMIT" ThirdParty/mond/UPSTREAM.md
+          grep -Fq "MOND_COMMIT=\"$MOND_COMMIT\"" scripts/stage-mond-2.0.sh
+          test "$(cat Vendor/idevice/COMMIT)" = "$IDEVICE_COMMIT"
+          test "$(cat Vendor/ssh/LIBSSH_COMMIT)" = "$LIBSSH_COMMIT"
+      - name: Serial full build
+        run: |
+          set -euxo pipefail
+          export PATH="/opt/procursus/bin:$PATH"
+          gmake clean || true
+          set +e
+          THEOS_USE_PARALLEL_BUILDING=0 gmake -j1 all FINALPACKAGE=1 TARGET=iphone:clang:latest:16.0 2>&1 | tee .theos/serial-build.log
+          rc=${PIPESTATUS[0]}
+          set -e
+          tail -n 500 .theos/serial-build.log
+          exit "$rc"
+      - name: Verify split Mond 2.1 + outer dylib
+        run: |
+          set -euxo pipefail
+          test -s .theos/obj/Mond2Embedded.dylib
+          test -s .theos/obj/FilzaApplySandboxExt.dylib
+          grep -Fxq "mond=$MOND_COMMIT" .theos/mond2/PINNED.txt
+          nm .theos/obj/Mond2Embedded.dylib | xcrun swift-demangle | grep -Fq 'Mond2Embedded.TendiesView'
+          grep -aFq 'exact upstream mond 2.1 runtime configured commit=500d76082f0ca021ddd591c05d129ebbc26c20df' .theos/obj/Mond2Embedded.dylib
+      - name: Upload serial log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mond21-serial-build-log-${{ github.run_id }}
+          path: .theos/serial-build.log
+          if-no-files-found: warn
+          retention-days: 7
