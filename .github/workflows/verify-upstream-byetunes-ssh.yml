@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: verify-byetunes-all-youtube-ssh-${{ github.ref }}
+  group: verify-byetunes-all-youtube-ssh-${{ github.sha }}
   cancel-in-progress: true
 
 jobs:
@@ -16,7 +16,7 @@ jobs:
       THEOS: ${{ github.workspace }}/theos
       DEVELOPER_DIR: /Applications/Xcode_26.2.app/Contents/Developer
       BYETUNES_COMMIT: 8a4be32f188f30b98f15b00566c5ff3edc1c03b1
-      MOND_COMMIT: 500d76082f0ca021ddd591c05d129ebbc26c20df
+      MOND_COMMIT: 87b38b2726160c6d1cfacbbfa834a2572d7ca333
       IDEVICE_COMMIT: 37ee77cf713f483551f3cf33ea8b2087a40058ca
       LIBSSH_COMMIT: 07430deb9b97b751ec5ea5a7fc307f40bf042e0a
       MBEDTLS_COMMIT: 068ff080b369adfac81509f9b57b2afabaf82dc5
@@ -67,7 +67,7 @@ jobs:
           ! grep -Fq 'FilzaMetadataWebRequest' ByeTunes/MusicManager/MetadataBackgroundURLSession.swift
           ! grep -Fq 'bash scripts/patch-byetunes-metadata-network-resilience.sh' FilzaByeTunesNetwork.mk
 
-      - name: Verify exact Mond 2.1 integration contract
+      - name: Verify exact Mond 2.0 integration contract
         run: |
           set -euxo pipefail
           grep -Fq "$MOND_COMMIT" ThirdParty/mond/UPSTREAM.md
@@ -77,8 +77,8 @@ jobs:
           grep -Fq 'bundle identifier `com.apple.mobile.MobileHouseArrest`' ThirdParty/mond/UPSTREAM.md
           grep -Fq 'marketing version `4.11`' ThirdParty/mond/UPSTREAM.md
           grep -Fq 'TARGET := iphone:clang:latest:16.0' Makefile
-          grep -Fq 'UserDefaults.standard.register(defaults: ["method": "bad_query"])' Mond2EmbeddedHost.swift
-          grep -Fq '@StateObject private var state = AppState.shared' Mond2EmbeddedHost.swift
+          grep -Fq 'UserDefaults.standard.register(defaults: ["exploit_method": "bad_query"])' Mond2EmbeddedHost.swift
+          grep -Fq '@StateObject private var state = AppState()' Mond2EmbeddedHost.swift
           test ! -e FilzaMondCurrentHost.swift
           test ! -e MondFullRootHost.swift
           test ! -e MondGestaltView.swift
@@ -177,24 +177,26 @@ jobs:
           test "$(git -C .theos/mond2/mond rev-parse HEAD)" = "$MOND_COMMIT"
           test -z "$(git -C .theos/mond2/mond status --porcelain)"
           test "$(grep '^mond=' .theos/mond2/PINNED.txt | cut -d= -f2)" = "$MOND_COMMIT"
-          grep -Fq '@StateObject private var state = AppState.shared' .theos/mond2/mond/mond/mond.swift
-          grep -Fq 'UserDefaults.standard.register(defaults: ["method": "bad_query"])' .theos/mond2/mond/mond/mond.swift
-          grep -Fq 'private static func cache_extra' .theos/mond2/mond/mond/helpers/mg.swift
-          grep -Fq 'cache_data_safe_offset' .theos/mond2/mond/mond/helpers/mg.swift
-          grep -Fq 'state.pb_granted = false' .theos/mond2/mond/mond/exploit/unsbx.swift
-          grep -Fq 'Explore Tendies' .theos/mond2/mond/mond/views/tweaks/posterboard/PosterView.swift
+          grep -Fq '@StateObject private var state = AppState()' .theos/mond2/mond/mond/mond.swift
+          grep -Fq 'UserDefaults.standard.register(defaults: ["exploit_method": "bad_query"])' .theos/mond2/mond/mond/mond.swift
+          grep -Fq 'grant_all(state: state)' .theos/mond2/mond/mond/mond.swift
+          grep -Fq 'Text("Explore Tendies")' .theos/mond2/mond/mond/views/tweaks/posterboard/PosterView.swift
+          grep -Fq 'SantanderView()' .theos/mond2/mond/mond/views/app/ContentView.swift
+          grep -Fq 'Text("Run Exploit")' .theos/mond2/mond/mond/views/app/SettingsView.swift
+          grep -Fq 'Text("Generate Token")' .theos/mond2/mond/mond/views/app/SettingsView.swift
           grep -Fq 'Your sandbox token is invalid.' .theos/mond2/mond/mond/views/app/SettingsView.swift
           test -z "$(git -C .theos/mond2/mond status --porcelain)"
 
           grep -aFq 'Mond2Embedded.dylib' "$MAIN"
-          grep -aFq 'exact upstream Mond 2.1 route installed commit=' "$MAIN"
+          grep -aFq 'exact upstream Mond 2.0 route installed commit=' "$MAIN"
           nm "$MOND" | xcrun swift-demangle > .theos/Mond2Embedded.symbols
           grep -Fq 'Mond2Embedded.mond' .theos/Mond2Embedded.symbols
           grep -Fq 'Mond2Embedded.ContentView' .theos/Mond2Embedded.symbols
           grep -Fq 'Mond2Embedded.SettingsView' .theos/Mond2Embedded.symbols
+          grep -Fq 'Mond2Embedded.PosterView' .theos/Mond2Embedded.symbols
           grep -Fq 'Mond2Embedded.TendiesView' .theos/Mond2Embedded.symbols
           grep -Fq 'Mond2Embedded.SantanderView' .theos/Mond2Embedded.symbols
-          grep -aFq 'exact upstream mond 2.1 runtime configured commit=' "$MOND"
+          grep -aFq 'exact upstream mond 2.0 runtime configured commit=' "$MOND"
           ! nm "$MOND" | grep -Eq '[[:space:]]_main$'
           ! grep -aFq 'waiting for Run Exploit' "$MOND"
           ! grep -aFq 'Fresh sandbox token issued successfully. Mond has not consumed it.' "$MOND"
@@ -295,7 +297,8 @@ jobs:
           MOND_DYLIB="$APP/Frameworks/Mond2Embedded.dylib"
           test -s "$MAIN_DYLIB"
           test -s "$MOND_DYLIB"
-          grep -aFq 'exact upstream mond 2.1 runtime configured commit=500d76082f0ca021ddd591c05d129ebbc26c20df' "$MOND_DYLIB"
+          grep -aFq 'exact upstream mond 2.0 runtime configured commit=87b38b2726160c6d1cfacbbfa834a2572d7ca333' "$MOND_DYLIB"
+          nm "$MOND_DYLIB" | xcrun swift-demangle | grep -Fq 'Mond2Embedded.TendiesView'
           grep -aFq 'embedded libssh server listening address=' "$MAIN_DYLIB"
           grep -aFq 'Reconciled legacy embedded provider state once:' "$MAIN_DYLIB"
           grep -aFq 'All Sources' "$MAIN_DYLIB"
