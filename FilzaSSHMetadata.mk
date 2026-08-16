@@ -1,5 +1,5 @@
-# Embedded SSH integration. Mond is staged and verified independently by
-# scripts/stage-mond-current.sh and is not modified from this fragment.
+# Embedded SSH integration. Exact Mond 2.0 is staged and built independently by
+# scripts/build-mond-2.0-embedded.sh; this fragment does not rewrite Mond source.
 # ByeTunes metadata/search behavior is not rewritten from this fragment.
 
 SSH_VENDOR ?= $(PWD)/Vendor/ssh

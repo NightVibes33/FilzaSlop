@@ -1,9 +1,12 @@
 @import UIKit;
 
+#import <dlfcn.h>
 #import <objc/message.h>
 
 #import "FilzaDiagnostics.h"
 #import "FilzaMondBridge.h"
+
+static void *gMond2Handle = NULL;
 
 static UIViewController *FMActiveController(void)
 {
@@ -49,12 +52,34 @@ static void FMShowUnavailable(UIViewController *source, NSString *message)
     [source presentViewController:alert animated:YES completion:nil];
 }
 
+static BOOL FMLoadMond2(void)
+{
+    if (gMond2Handle) return YES;
+
+    NSString *frameworks = NSBundle.mainBundle.privateFrameworksPath;
+    NSString *path = [frameworks stringByAppendingPathComponent:@"Mond2Embedded.dylib"];
+    gMond2Handle = dlopen(path.fileSystemRepresentation, RTLD_NOW | RTLD_LOCAL);
+    if (!gMond2Handle) {
+        const char *error = dlerror();
+        FilzaDiagnosticsAppend(@"mond", [NSString stringWithFormat:
+            @"failed to load exact Mond 2.0 module: %s",
+            error ?: "unknown dlopen error"]);
+        return NO;
+    }
+
+    FilzaDiagnosticsAppend(@"mond",
+        @"loaded exact upstream Mond 2.0 module commit=87b38b2726160c6d1cfacbbfa834a2572d7ca333");
+    return YES;
+}
+
 static UIViewController *FMCreateHost(void)
 {
-    Class factory = NSClassFromString(@"MondEmbeddedHostFactory");
+    if (!FMLoadMond2()) return nil;
+
+    Class factory = NSClassFromString(@"Mond2EmbeddedHostFactory");
     SEL selector = NSSelectorFromString(@"makeViewController");
     if (!factory || ![factory respondsToSelector:selector]) {
-        FilzaDiagnosticsAppend(@"mond", @"Mond 2.1 embedded host factory unavailable");
+        FilzaDiagnosticsAppend(@"mond", @"exact Mond 2.0 host factory unavailable");
         return nil;
     }
 
@@ -62,13 +87,13 @@ static UIViewController *FMCreateHost(void)
         UIViewController *controller =
             ((UIViewController *(*)(id, SEL))objc_msgSend)(factory, selector);
         if (![controller isKindOfClass:UIViewController.class]) {
-            FilzaDiagnosticsAppend(@"mond", @"Mond 2.1 embedded host returned no controller");
+            FilzaDiagnosticsAppend(@"mond", @"exact Mond 2.0 host returned no controller");
             return nil;
         }
         return controller;
     } @catch (NSException *exception) {
         FilzaDiagnosticsAppend(@"mond", [NSString stringWithFormat:
-            @"Mond 2.1 embedded host exception: %@",
+            @"exact Mond 2.0 host exception: %@",
             exception.reason ?: exception.name]);
         return nil;
     }
@@ -78,7 +103,7 @@ static BOOL FMPresentHost(UIViewController *source)
 {
     UIViewController *controller = FMCreateHost();
     if (!controller) {
-        FMShowUnavailable(source, @"The Mond 2.1 interface could not be created.");
+        FMShowUnavailable(source, @"The exact upstream Mond 2.0 interface could not be loaded.");
         return NO;
     }
 
@@ -87,8 +112,7 @@ static BOOL FMPresentHost(UIViewController *source)
         while (target.presentedViewController)
             target = target.presentedViewController;
         [target presentViewController:controller animated:YES completion:^{
-            FilzaDiagnosticsAppend(@"mond",
-                @"presented exact Mond 2.1 root directly");
+            FilzaDiagnosticsAppend(@"mond", @"presented exact upstream Mond 2.0 root");
         }];
     });
     return YES;
@@ -114,5 +138,5 @@ void FilzaMondPresent(void)
 __attribute__((constructor)) static void FilzaMondInstall(void)
 {
     FilzaDiagnosticsAppend(@"mond",
-        @"full Mond 2.1 route installed commit=500d76082f0ca021ddd591c05d129ebbc26c20df");
+        @"exact upstream Mond 2.0 route installed commit=87b38b2726160c6d1cfacbbfa834a2572d7ca333; Filza app version remains independently anchored");
 }
