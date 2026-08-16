@@ -5,9 +5,9 @@ import UniformTypeIdentifiers
 import ObjectiveC.runtime
 import PartyUI
 
-// Integration boundary only. The Mond 2.0 source tree is compiled unchanged in
-// this same module. This host reproduces the standalone App lifecycle that
-// cannot become UIApplication's @main when Mond is embedded inside Filza.
+// Integration boundary only. The exact Mond 2.1 source tree is compiled
+// unchanged in this same module. Filza already owns UIApplication, so this host
+// reproduces the standalone App lifecycle without modifying Mond source.
 private enum Mond2EmbeddedRuntime {
     private static var configured = false
 
@@ -21,7 +21,8 @@ private enum Mond2EmbeddedRuntime {
             dup2(pipe.fileHandleForWriting.fileDescriptor, STDOUT_FILENO)
         }
 
-        UserDefaults.standard.register(defaults: ["exploit_method": "bad_query"])
+        // Exact upstream 2.1 mond.swift default and startup behavior.
+        UserDefaults.standard.register(defaults: ["method": "bad_query"])
         if UserDefaults.standard.bool(forKey: "ka_on") {
             keep_alive()
         }
@@ -38,12 +39,13 @@ private enum Mond2EmbeddedRuntime {
             method_exchangeImplementations(original, fixed)
         }
 
-        NSLog("[Filza/Mond] exact upstream mond 2.0 runtime configured commit=87b38b2726160c6d1cfacbbfa834a2572d7ca333")
+        NSLog("[Filza/Mond] exact upstream mond 2.1 runtime configured commit=500d76082f0ca021ddd591c05d129ebbc26c20df")
     }
 }
 
 private struct Mond2EmbeddedRoot: View {
-    @StateObject private var state = AppState()
+    // Exact upstream 2.1 uses the shared AppState singleton.
+    @StateObject private var state = AppState.shared
 
     var body: some View {
         ContentView()
@@ -88,7 +90,7 @@ public final class Mond2EmbeddedHostFactory: NSObject {
 
         // Filza owns UIApplication, so Mond must be presented modally. A page
         // sheet supplies the system's native dismissal gesture without adding
-        // or changing any Mond controls or source code.
+        // or changing any Mond controls or upstream source code.
         controller.modalPresentationStyle = .pageSheet
         return controller
     }
