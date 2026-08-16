@@ -1,0 +1,96 @@
+name: Verify Exact Mond 2.1 Embedded
+
+on:
+  push:
+    branches: [ mond-2.1-upstream ]
+  workflow_dispatch:
+
+concurrency:
+  group: verify-mond-2.1-${{ github.sha }}
+  cancel-in-progress: false
+
+jobs:
+  mond-2-1:
+    runs-on: macos-26-intel
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_26.2.app/Contents/Developer
+      MOND_COMMIT: 500d76082f0ca021ddd591c05d129ebbc26c20df
+
+    steps:
+      - name: Xcode 26.2 setup
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: '26.2'
+
+      - name: Checkout integration branch
+        uses: actions/checkout@v4
+
+      - name: Verify Filza anchors and clean integration contract
+        run: |
+          set -euxo pipefail
+          grep -Fq 'TARGET := iphone:clang:latest:16.0' Makefile
+          grep -Fq 'Version: 2.0.0' control
+          grep -Fq 'marketing version `4.11`' ThirdParty/mond/UPSTREAM.md
+          grep -Fq 'bundle identifier `com.apple.mobile.MobileHouseArrest`' ThirdParty/mond/UPSTREAM.md
+          grep -Fq "$MOND_COMMIT" scripts/stage-mond-2.0.sh
+          grep -Fq "$MOND_COMMIT" scripts/build-mond-2.0-embedded.sh
+          grep -Fq "$MOND_COMMIT" Mond2EmbeddedHost.swift
+          grep -Fq 'import PartyUI' Mond2EmbeddedHost.swift
+          grep -Fq 'UserDefaults.standard.register(defaults: ["method": "bad_query"])' Mond2EmbeddedHost.swift
+          grep -Fq '@StateObject private var state = AppState.shared' Mond2EmbeddedHost.swift
+          test ! -e scripts/patch-mond-token-button.sh
+          test ! -e scripts/patch-mond-ios27-keys.sh
+          test ! -e MondIOS27KeySupport.swift
+          test ! -e scripts/stage-mond-current.sh
+
+      - name: Build untouched upstream Mond 2.1 dylib
+        run: |
+          set -euxo pipefail
+          bash scripts/build-mond-2.0-embedded.sh
+
+      - name: Verify exact upstream checkout and 2.1 runtime
+        run: |
+          set -euxo pipefail
+          MOND_TREE=.theos/mond2/mond
+          DYLIB=.theos/obj/Mond2Embedded.dylib
+
+          test "$(git -C "$MOND_TREE" rev-parse HEAD)" = "$MOND_COMMIT"
+          test -z "$(git -C "$MOND_TREE" status --porcelain)"
+          grep -Fxq "mond=$MOND_COMMIT" .theos/mond2/PINNED.txt
+
+          grep -Fq '@StateObject private var state = AppState.shared' "$MOND_TREE/mond/mond.swift"
+          grep -Fq 'UserDefaults.standard.register(defaults: ["method": "bad_query"])' "$MOND_TREE/mond/mond.swift"
+          grep -Fq 'grant_all(state: state)' "$MOND_TREE/mond/mond.swift"
+          grep -Fq 'static let shared = AppState()' "$MOND_TREE/mond/helpers/utils.swift"
+          grep -Fq 'private static func cache_extra' "$MOND_TREE/mond/helpers/mg.swift"
+          grep -Fq 'cache_data_safe_offset' "$MOND_TREE/mond/helpers/mg.swift"
+          grep -Fq 'state.mg_granted = result >= 0' "$MOND_TREE/mond/exploit/unsbx.swift"
+          grep -Fq 'state.pb_granted = false' "$MOND_TREE/mond/exploit/unsbx.swift"
+          grep -Fq 'Explore Tendies' "$MOND_TREE/mond/views/tweaks/posterboard/PosterView.swift"
+          grep -Fq 'struct TendiesView' "$MOND_TREE/mond/views/tweaks/posterboard/TendiesView.swift"
+          grep -Fq 'struct SantanderView' "$MOND_TREE/mond/views/tweaks/SantanderView.swift"
+
+          test -s "$DYLIB"
+          test "$(lipo -archs "$DYLIB")" = "arm64"
+          otool -L "$DYLIB" | grep -F '@rpath/Mond2Embedded.dylib'
+          grep -aFq 'Explore Tendies' "$DYLIB"
+          grep -aFq 'HouseArrest' "$DYLIB"
+          grep -aFq 'Run Exploit' "$DYLIB"
+          grep -aFq 'Generate Token' "$DYLIB"
+          grep -aFq 'Your sandbox token is invalid.' "$DYLIB"
+          grep -aFq 'exact upstream mond 2.1 runtime configured commit=500d76082f0ca021ddd591c05d129ebbc26c20df' "$DYLIB"
+          ! grep -aFq 'Fresh sandbox token issued successfully. Mond has not consumed it.' "$DYLIB"
+          test -z "$(git -C "$MOND_TREE" status --porcelain)"
+          shasum -a 256 "$DYLIB" | tee .theos/MOND-2.1-SHA256.txt
+
+      - name: Upload verified Mond 2.1 module
+        uses: actions/upload-artifact@v4
+        with:
+          name: Mond-2.1-Exact-Upstream-arm64
+          path: |
+            .theos/obj/Mond2Embedded.dylib
+            .theos/mond2/PINNED.txt
+            .theos/MOND-2.1-SHA256.txt
+            ThirdParty/mond/UPSTREAM.md
+          if-no-files-found: error
+          retention-days: 14
