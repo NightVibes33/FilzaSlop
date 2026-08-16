@@ -34,6 +34,23 @@ printf '%s\n' "${MOND_SOURCES[@]}" | grep -Fq '/views/tweaks/posterboard/Tendies
 printf '%s\n' "${MOND_SOURCES[@]}" | grep -Fq '/views/tweaks/SantanderView.swift'
 test "$(git -C "$MOND" rev-parse HEAD)" = "$MOND_COMMIT"
 
+# Verify exact 2.1 behavior directly in the immutable upstream checkout before
+# compilation. This avoids relying on optimizer-sensitive raw SwiftUI strings.
+grep -Fq '@StateObject private var state = AppState.shared' "$MOND/mond/mond.swift"
+grep -Fq 'UserDefaults.standard.register(defaults: ["method": "bad_query"])' "$MOND/mond/mond.swift"
+grep -Fq 'grant_all(state: state)' "$MOND/mond/mond.swift"
+grep -Fq 'private static func cache_extra' "$MOND/mond/helpers/mg.swift"
+grep -Fq 'func cache_data_safe_offset' "$MOND/mond/helpers/mg.swift"
+grep -Fq 'state.mg_granted = result >= 0' "$MOND/mond/exploit/unsbx.swift"
+grep -Fq 'state.pb_granted = false' "$MOND/mond/exploit/unsbx.swift"
+grep -Fq 'state.apps_granted = false' "$MOND/mond/exploit/unsbx.swift"
+grep -Fq 'Text("Explore Tendies")' "$MOND/mond/views/tweaks/posterboard/PosterView.swift"
+grep -Fq 'SantanderView()' "$MOND/mond/views/app/ContentView.swift"
+grep -Fq 'Text("Run Exploit")' "$MOND/mond/views/app/SettingsView.swift"
+grep -Fq 'Text("Generate Token")' "$MOND/mond/views/app/SettingsView.swift"
+grep -Fq 'Your sandbox token is invalid.' "$MOND/mond/views/app/SettingsView.swift"
+test -z "$(git -C "$MOND" status --porcelain)"
+
 COMMON_SWIFT=(
     -target "$TARGET"
     -sdk "$SDK"
@@ -108,14 +125,13 @@ if otool -L "$OUT" | grep -E '/(PartyUI|ZIPFoundation)'; then
     exit 1
 fi
 
-# UI text literals may be optimized/coalesced by Swift. The clean exact source
-# checkout proves the upstream UI; compiled Swift symbols prove those sources
-# were emitted into this dylib.
+# Prove the exact upstream Swift sources emitted code into the isolated dylib.
 nm "$OUT" | xcrun swift-demangle > "$BUILD/Mond2Embedded.symbols"
 for symbol in \
     'Mond2Embedded.mond' \
     'Mond2Embedded.ContentView' \
     'Mond2Embedded.SettingsView' \
+    'Mond2Embedded.PosterView' \
     'Mond2Embedded.TendiesView' \
     'Mond2Embedded.SantanderView'; do
     if ! grep -Fq "$symbol" "$BUILD/Mond2Embedded.symbols"; then
@@ -127,17 +143,20 @@ done
 
 grep -aFq 'exact upstream mond 2.1 runtime configured commit=500d76082f0ca021ddd591c05d129ebbc26c20df' "$OUT"
 
-# -emit-library intentionally does not export an executable _main entry point.
-# Upstream mond.swift is still compiled unchanged, proven by Mond2Embedded.mond.
+# -emit-library intentionally produces a dylib rather than an executable entry
+# point. Upstream mond.swift is still compiled unchanged, proven above.
 if nm "$OUT" | grep -Eq '[[:space:]]_main$'; then
     echo "Mond 2.1 verifier failed: embedded dylib unexpectedly exports executable _main" >&2
     exit 1
 fi
 
-# Compilation is not allowed to mutate the staged upstream repositories.
-test -z "$(git -C "$MOND" status --porcelain)"
-test -z "$(git -C "$PARTYUI" status --porcelain)"
-test -z "$(git -C "$ZIPFOUNDATION" status --porcelain)"
+for repo in "$MOND" "$PARTYUI" "$ZIPFOUNDATION"; do
+    test -z "$(git -C "$repo" status --porcelain)" || {
+        echo "Mond 2.1 verifier failed: staged upstream repository became dirty: $repo" >&2
+        git -C "$repo" status --short >&2
+        exit 1
+    }
+done
 
 shasum -a 256 "$OUT"
 echo "Built isolated exact Mond 2.1 dylib without modifying upstream source"
