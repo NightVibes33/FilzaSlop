@@ -9,7 +9,7 @@ jobs:
   contract:
     runs-on: ubuntu-latest
     env:
-      MOND_COMMIT: 87b38b2726160c6d1cfacbbfa834a2572d7ca333
+      MOND_COMMIT: '87b38b2726160c6d1cfacbbfa834a2572d7ca333'
     steps:
       - uses: actions/checkout@v4
       - name: Diagnose every Mond 2.0 invariant
@@ -20,6 +20,8 @@ jobs:
           REPORT="$RUNNER_TEMP/mond-contract-results.txt"
           : > "$REPORT"
           report() { echo "$*" | tee -a "$REPORT"; }
+          report "MOND_COMMIT=$MOND_COMMIT"
+          report "MOND_COMMIT_LENGTH=${#MOND_COMMIT}"
           check() {
             local name="$1"
             shift
