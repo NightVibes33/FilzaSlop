@@ -109,10 +109,12 @@ jobs:
           set -euxo pipefail
           export PATH="/opt/procursus/bin:$PATH"
           gmake clean || true
+          # Command-line instance SWIFTFLAGS override the target Makefile's
+          # trailing 300s solver threshold. Keep runtime source untouched.
           gmake -j"$(sysctl -n hw.logicalcpu)" all \
             FINALPACKAGE=1 \
             TARGET=iphone:clang:latest:17.0 \
-            ADDITIONAL_SWIFTFLAGS='-Xfrontend -solver-expression-time-threshold=60000'
+            FilzaApplySandboxExt_SWIFTFLAGS='-default-isolation MainActor -Xfrontend -solver-expression-time-threshold=1200'
 
           grep -Fxq "mond=$MOND_COMMIT" ThirdParty/mond-current/PINNED.txt
           grep -Fq '@StateObject private var state = AppState.shared' ThirdParty/mond-current/Upstream/mond.swift
