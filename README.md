@@ -2,15 +2,18 @@
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/94.gif" width="150" alt="Animated Gengar sprite" />
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/94.gif" width="108" alt="Animated Gengar" />
+&nbsp;&nbsp;&nbsp;
+<img src="https://www.gifcen.com/wp-content/uploads/2022/10/gengar-gif.gif" width="150" alt="Animated floating Gengar" />
+&nbsp;&nbsp;&nbsp;
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/94.gif" width="108" alt="Animated shiny Gengar" />
 
 # FILZA 27
 
 ### `JAILED FILE BROWSER // MODERN iOS RESEARCH TOOLKIT`
 
-<sub>Filza · 3105 · ByeTunes · Mond 2.1 · MobileGestalt · WebDAV · SSH</sub>
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=20&pause=850&color=A855F7&center=true&vCenter=true&width=900&lines=FILZA+%2B+MOND+%2B+3105+%2B+BYETUNES;MODERN+iOS+FILESYSTEM+RESEARCH;EXACT-SHA+GREEN+BUILDS+ONLY;PURPLE+GHOST+MODE+ENABLED" alt="Animated typing intro" />
 
-<br />
 <br />
 
 [![ENTER](https://img.shields.io/badge/ENTER-FILZA_27-6D28D9?style=for-the-badge&logo=apple&logoColor=white)](#download)
@@ -21,6 +24,14 @@
 
 `iOS 18` · `iOS 26` · `iOS 27 beta 1–4 research` · `arm64` · `sideloadable IPA`
 
+<br />
+
+<img src="https://media3.giphy.com/media/v1.Y2lkPTZjMDliOTUycTIyaTcxbXExbTZ2cDFodXVhZnk4emQwaGlua3ZkOGJqdWNjeWo2eiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/kcKpORRzy95ofrqAEp/giphy.gif" width="520" alt="Animated neon cyberpunk girl" />
+
+<br />
+
+<sub>purple light // terminal glow // ghost energy</sub>
+
 </div>
 
 > [!IMPORTANT]
@@ -30,11 +41,13 @@
 
 <div align="center">
 
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/94.gif" width="72" alt="Gengar divider" />
+
 ### FILE ACCESS WITHOUT THE BORING README
 
-A jailed, sideloadable Filza fork that combines the file browser with app/container management, 3105, ByeTunes, Mond 2.1, WebDAV, SSH, MobileGestalt tooling, and modern iOS filesystem research inside one IPA.
+A jailed, sideloadable Filza fork combining the core file browser with app/container management, 3105, ByeTunes, Mond 2.1, WebDAV, SSH, MobileGestalt tooling, and modern iOS filesystem research inside one IPA.
 
-**[DOWNLOAD](#download) · [FEATURES](#the-stack) · [MOND](#mond-21) · [INSTALL](#install) · [BUILDS](#verified-build-pipeline) · [CREDITS](#credits)**
+**[DOWNLOAD](#download) · [STACK](#the-stack) · [MOND](#mond-21) · [INSTALL](#install) · [BUILDS](#verified-build-pipeline) · [CREDITS](#credits)**
 
 </div>
 
@@ -81,6 +94,10 @@ FILZA 27
 └── Release Gate ─────────────── exact-SHA green build
 ```
 
+<div align="center">
+<img src="https://www.gifcen.com/wp-content/uploads/2022/10/gengar-gif.gif" width="105" alt="Floating Gengar" />
+</div>
+
 ---
 
 ## Mond 2.1
@@ -124,15 +141,15 @@ The editor includes newer iOS 27 capability mappings alongside Dynamic Island, A
 
 <br />
 
-Pinned integration:
+Apps Manager embeds **3105 1.0.1**, pinned to:
 
 ```text
 NightVibes33/3105@90ab4dd35823d58de10e6b8b78236e0e7e1ad32b
 ```
 
-Apps Manager includes application search, icon and disk-size recovery where available, container browsing, per-tab navigation, file preview, create/rename/import/replace/delete operations, ZIP creation/extraction, and Patch Workspace handoff.
+Included operations cover application search, icon and disk-size recovery where available, container browsing, file preview, create/rename/import/replace/delete actions, ZIP creation/extraction, and Patch Workspace handoff.
 
-Patch Workspace v2 supports portable `.3105` projects, schema-v2 workspaces, legacy-v1 decoding, bundle-ID targets, directory targets, import/export, backups, receipts, transaction journals, and restore flows.
+The `.3105` Patch Workspace v2 supports portable projects, schema-v2 workspaces, legacy-v1 decoding, bundle-ID targets, directory targets, import/export, backups, receipts, transaction journals, and restore flows.
 
 </details>
 
@@ -147,34 +164,50 @@ Patch Workspace v2 supports portable `.3105` projects, schema-v2 workspaces, leg
 
 ByeTunes is embedded directly into Filza 27 and includes library browsing, downloads, persistent queues, backups, restore/repair tools, metadata editing, and multi-source metadata routing.
 
-The current build restores the known-working pre-v2.4 YouTubeKit metadata path as the first free YouTube provider while retaining the current ByeTunes integration. Required JavaScript solver resources are bundled in the IPA.
+The current build restores the known working pre-v2.4 YouTubeKit metadata path as the first free YouTube provider while retaining the current ByeTunes integration. Required JavaScript solver resources are packaged in the IPA.
 
 </details>
 
 ---
 
-## Compatibility
+## Network layer
 
-| Target | State |
-|---|---|
-| iOS 18 | Modern jailed/container-access target |
-| iOS 26 | Modern jailed/container-access target |
-| iOS 27 beta 1–4 | Research target for useful `bad_query` behavior |
-| iOS 27 beta 5+ | Do **not** assume the same access behavior |
+### WebDAV
 
-Exact access varies by device and OS build. Filza 27 validates real file/directory access rather than treating a returned handle as automatic success.
+Enable WebDAV from:
+
+```text
+Preferences → Advanced options → Enable WebDAV server
+```
+
+Default port:
+
+```text
+11111
+```
+
+### SSH
+
+Open:
+
+```text
+Preferences → SSH SERVER
+```
+
+Default port:
+
+```text
+2222
+```
+
+Both services inherit the filesystem permissions of the Filza 27 process itself.
 
 ---
 
 ## Install
 
-<details>
-<summary><strong>OPEN // Installation</strong></summary>
-
-<br />
-
-1. Download the latest verified `Filza-27.ipa` from Releases.
-2. Sideload with your preferred signing method.
+1. Download the latest verified [`Filza-27.ipa`](https://github.com/NightVibes33/Filza-27/releases/latest/download/Filza-27.ipa).
+2. Sideload it with your preferred signing method.
 3. Keep the base app identity when your signer allows it:
 
 ```text
@@ -183,128 +216,75 @@ com.apple.mobile.MobileHouseArrest
 
 Changing that bundle identifier can break MobileHouseArrest-dependent behavior.
 
-</details>
-
----
-
-## WebDAV + SSH
-
-<details>
-<summary><strong>OPEN // Network access</strong></summary>
-
-<br />
-
-### WebDAV
-
-Enable from:
-
-**Preferences → Advanced options → Enable WebDAV server**
-
-Default port:
-
-```text
-11111
-```
-
-Accept the iOS Local Network permission prompt. Because the server is app-hosted, iOS may suspend it when the app backgrounds.
-
-### SSH
-
-Open:
-
-**Preferences → SSH SERVER**
-
-Default port:
-
-```text
-2222
-```
-
-Set a password before enabling public-facing authentication. SSH receives the same filesystem permissions as the Filza 27 process itself.
-
-</details>
-
----
-
-## Logs
-
-```text
-Documents/FilzaSlop Logs/
-├── Runtime.log
-├── WebDAVStatus.txt
-├── SSHStatus.txt
-└── ByeTunesEmbedStage.txt
-```
-
 ---
 
 ## Verified build pipeline
 
 <div align="center">
 
-[![BUILD](https://img.shields.io/github/actions/workflow/status/NightVibes33/Filza-27/verify-upstream-byetunes-ssh.yml?branch=main&style=for-the-badge&label=ARM64%20IPA&logo=githubactions&logoColor=white&color=6D28D9)](https://github.com/NightVibes33/Filza-27/actions/workflows/verify-upstream-byetunes-ssh.yml)
+[![BUILD](https://img.shields.io/github/actions/workflow/status/NightVibes33/Filza-27/verify-upstream-byetunes-ssh.yml?branch=main&style=for-the-badge&label=ARM64%20IPA&logo=githubactions&logoColor=white&color=7C3AED)](https://github.com/NightVibes33/Filza-27/actions/workflows/verify-upstream-byetunes-ssh.yml)
+[![RELEASE](https://img.shields.io/github/v/release/NightVibes33/Filza-27?display_name=tag&style=for-the-badge&label=RELEASE&color=111111)](https://github.com/NightVibes33/Filza-27/releases/latest)
 
 </div>
 
-```text
-main commit
-   │
-   ▼
-verify pinned sources
-   │
-   ▼
-compile arm64 runtime
-   │
-   ▼
-package anchored Filza IPA
-   │
-   ▼
-verify final IPA
-   │
-   ▼
-publish exact same SHA
+```mermaid
+flowchart LR
+    A[main commit] --> B[pin + source verification]
+    B --> C[arm64 compile]
+    C --> D[IPA packaging]
+    D --> E[artifact verification]
+    E --> F[exact-SHA release gate]
+    F --> G[Filza-27.ipa]
 ```
 
-Primary verifier:
+The verifier stages pinned dependencies, validates the Mond functional-source graph, builds the arm64 target, packages the anchored Filza base IPA, validates the finished package, and uploads the artifact. The release workflow then waits for that exact SHA before publishing it.
+
+---
+
+## Logs
+
+Runtime logs live under:
 
 ```text
-.github/workflows/verify-upstream-byetunes-ssh.yml
+Documents/FilzaSlop Logs/
 ```
 
-Release gate:
+Useful files include:
 
 ```text
-.github/workflows/publish-green-ipa-release.yml
+Runtime.log
+WebDAVStatus.txt
+SSHStatus.txt
+ByeTunesEmbedStage.txt
 ```
 
-The release workflow waits for a successful verifier at the **same commit SHA**, downloads that exact artifact, validates it, calculates SHA-256, and publishes the IPA plus checksum.
+---
+
+## Compatibility
+
+| Target | Status |
+|---|---|
+| iOS 18 | Research / supported project target |
+| iOS 26 | Research / supported project target |
+| iOS 27 beta 1–4 | Early-build research target |
+| iOS 27 beta 5+ | Do not assume the same access behavior |
+| arm64 IPA | Verified by CI |
+| Full jailbreak | Not claimed |
 
 ---
 
 ## Current limitations
 
-<details>
-<summary><strong>OPEN // Reality check</strong></summary>
-
-<br />
-
 - A green Actions build proves compilation, linking, packaging, and artifact verification; it cannot prove every private API behaves identically on every device/build.
 - `/System/Library` can be readable while remaining on iOS's signed read-only system volume.
-- App Group or data-container access does not imply access to the entire filesystem.
+- App Group or data-container access does not imply unrestricted filesystem access.
 - Kernel read/write is not established by this project.
 - No full jailbreak, root shell, SPTM bypass, or system-volume remount is claimed.
-- WebDAV and SSH are app-hosted and can be suspended in the background.
-
-</details>
+- WebDAV and SSH are app-hosted and can be suspended when iOS backgrounds the app.
 
 ---
 
 ## Credits
-
-<details>
-<summary><strong>OPEN // Upstream projects + contributors</strong></summary>
-
-<br />
 
 - [34306/FilzaJailedDS](https://github.com/34306/FilzaJailedDS)
 - [0xjohnnydev/FilzaSlop](https://github.com/0xjohnnydev/FilzaSlop)
@@ -321,24 +301,18 @@ The release workflow waits for a successful verifier at the **same commit SHA**,
 - `SerStars/nugget-wallpapers`
 - mightycooldude12
 
-Their upstream licenses and notices remain part of the repository.
-
-</details>
-
 ---
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/94.gif" width="84" alt="Animated shiny Gengar sprite" />
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/94.gif" width="92" alt="Animated shiny Gengar" />
+&nbsp;&nbsp;
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/94.gif" width="92" alt="Animated Gengar" />
 
-### `FILZA 27 // NIGHTVIBES33`
+### `SEE YOU IN /private/var`
 
-<sub>Research features are research features — not proof of unrestricted system access.</sub>
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=16&pause=1000&color=8B5CF6&center=true&vCenter=true&width=760&lines=filesystems+%2F+containers+%2F+gestalt+%2F+patches;built+for+research%2C+not+marketing+slides;ghosts+in+the+filesystem" alt="Animated footer typing" />
 
-<br />
-<br />
-
-[![RELEASES](https://img.shields.io/badge/OPEN-RELEASES-111111?style=for-the-badge&logo=github&logoColor=white)](https://github.com/NightVibes33/Filza-27/releases)
-[![SOURCE](https://img.shields.io/badge/VIEW-SOURCE-6D28D9?style=for-the-badge&logo=github&logoColor=white)](https://github.com/NightVibes33/Filza-27)
+<sub>README aesthetic preview // no production changes on main</sub>
 
 </div>
