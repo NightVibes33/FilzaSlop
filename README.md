@@ -1,10 +1,14 @@
 <div align="center">
 
-# 👻 FILZA 27
+# ✦ 𖤐 FILZA 27 𖤐 ✦
+
+### `GHOST TYPE FILE MANAGER`
 
 <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=20&duration=1800&pause=500&color=A855F7&center=true&vCenter=true&repeat=true&width=900&lines=FILE+BROWSER+%2F%2F+GHOST+MODE;BROWSE+%E2%80%A2+INSPECT+%E2%80%A2+MANAGE+%E2%80%A2+ARCHIVE;SIDELOADABLE+ARM64+FILZA;MODERN+iOS+FILESYSTEM+TOOLS" alt="Filza 27 typing animation" />
 
 <br />
+
+`✦────────────────────── 𖤐 ──────────────────────✦`
 
 <table>
 <tr>
@@ -21,7 +25,7 @@
 </tr>
 </table>
 
-<sub>ghost type energy // purple everything // Filza first</sub>
+<sub>✦ ghost type energy · purple everything · Filza first ✦</sub>
 
 <br /><br />
 
@@ -37,23 +41,27 @@
 
 <br />
 
-**A modern, sideloadable Filza build focused on real file browsing, reachable app/container access, file operations and modern iOS compatibility.**
+**A modern sideloadable Filza build for browsing, inspecting and managing files on modern iOS.**
 
 `Filza 4.11` · `arm64` · `sideloadable` · `exact-SHA verified releases`
+
+<br />
+
+`𖤐 BROWSE  ·  INSPECT  ·  MANAGE  ·  ARCHIVE 𖤐`
 
 </div>
 
 ---
 
-## 👻 Filza Core
+## ✦ 𖤐 FILZA CORE 𖤐 ✦
 
-Filza 27 is built around the file manager itself. The extra integrations stay secondary; **browsing and managing files is the point.**
+Filza 27 is built around the **file manager itself**. Everything else stays secondary.
 
 <table>
 <tr>
 <td width="50%" valign="top">
 
-### ◉ Browse
+### ◈ Browse
 
 Navigate files and directories the process can actually reach, with real directory listings instead of fake success states.
 
@@ -81,15 +89,21 @@ Use Filza as a working file manager rather than a read-only viewer.
 </tr>
 </table>
 
+<div align="center">
+
+`✦────────────── 𖤐 FILESYSTEM // ONLINE 𖤐 ──────────────✦`
+
+</div>
+
 ---
+
+## ✦ ↓ CATCH THE LATEST BUILD ✦
 
 <div align="center">
 
-## ↓ Catch the latest build
-
 # [`Filza-27.ipa`](https://github.com/NightVibes33/Filza-27/releases/latest/download/Filza-27.ipa)
 
-`latest verified arm64 package`
+### `LATEST VERIFIED ARM64 PACKAGE`
 
 Every public IPA is released only after the verifier succeeds for the **same commit SHA**.
 
@@ -102,7 +116,7 @@ Every public IPA is released only after the verifier succeeds for the **same com
 
 ---
 
-## 🟣 Ghost Mode
+## ✦ 𖤐 GHOST MODE 𖤐 ✦
 
 <table>
 <tr>
@@ -122,9 +136,9 @@ Every public IPA is released only after the verifier succeeds for the **same com
 ╰──────────────────────────────╯
 ```
 
-`theme:` **ghost**  
-`accent:` **purple**  
-`main character:` **Filza**
+`TYPE:` **GHOST**  
+`ACCENT:` **PURPLE**  
+`MAIN CHARACTER:` **FILZA**
 
 </td>
 <td width="52%" align="center" valign="middle">
@@ -135,9 +149,17 @@ Every public IPA is released only after the verifier succeeds for the **same com
 </tr>
 </table>
 
+<div align="center">
+
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=15&duration=1650&pause=500&color=8B5CF6&center=true&vCenter=true&repeat=true&width=850&lines=%5Bfilza%5D+opening+filesystem...;%5Bghost%5D+checking+reachable+containers...;%5Bfiles%5D+ready+to+browse...;%5Brelease%5D+exact-SHA+verified..." alt="Filza ghost mode typing animation" />
+
+`✦──────────────────── 𖤐 ────────────────────✦`
+
+</div>
+
 ---
 
-## ✦ Compatibility
+## ✦ COMPATIBILITY ✦
 
 <div align="center">
 
@@ -154,7 +176,7 @@ Actual access varies by device and build, so Filza 27 validates real file and di
 
 ---
 
-## ✦ Install
+## ✦ INSTALL ✦
 
 1. Download [`Filza-27.ipa`](https://github.com/NightVibes33/Filza-27/releases/latest/download/Filza-27.ipa).
 2. Sideload it with your preferred signing method.
@@ -169,11 +191,11 @@ Changing the bundle identifier can break MobileHouseArrest-dependent behavior.
 ---
 
 <details>
-<summary><b>👾 Integrated extras</b></summary>
+<summary><b>✦ 𖤐 Integrated extras 𖤐 ✦</b></summary>
 
 <br />
 
-Filza 27 also contains additional tools, but they are secondary to the file manager itself:
+Filza 27 also contains additional tools, but they stay secondary to the file manager itself:
 
 - **Apps Manager / 3105** — app inspection and `.3105` patch workspaces
 - **Mond 2.1** — MobileGestalt, PosterBoard/Tendies and HouseArrest/Santander routes
@@ -187,7 +209,7 @@ See [`RELEASE_NOTES.md`](RELEASE_NOTES.md) for the detailed current integration 
 </details>
 
 <details>
-<summary><b>⚙️ Technical / build details</b></summary>
+<summary><b>✦ Technical / build details ✦</b></summary>
 
 <br />
 
@@ -214,7 +236,7 @@ Documents/FilzaSlop Logs/
 </details>
 
 <details>
-<summary><b>⚠️ Current limitations</b></summary>
+<summary><b>✦ Current limitations ✦</b></summary>
 
 <br />
 
@@ -228,22 +250,22 @@ Documents/FilzaSlop Logs/
 
 ---
 
-## ✦ Credits
+## ✦ 𖤐 CREDITS 𖤐 ✦
 
 <div align="center">
 
-[FilzaJailedDS](https://github.com/34306/FilzaJailedDS) · [FilzaSlop](https://github.com/0xjohnnydev/FilzaSlop) · [MobileHouseArrest-PoC](https://github.com/0xjohnnydev/MobileHouseArrest-PoC) · [bad_query](https://github.com/forcequitOS/bad_query) · [mond](https://github.com/rooootdev/mond) · [3105](https://github.com/YangJiiii/3105) · [ByeTunes](https://github.com/EduAlexxis/ByeTunes)
+[FilzaJailedDS](https://github.com/34306/FilzaJailedDS) · [FilzaSlop](https://github.com/0xjohnnydev/FilzaSlop) · [MobileHouseArrest-PoC](https://github.com/0xjohnnydev/MobileHouseArrest-PoC) · [bad_query](https://github.com/forcequitOS/bad_query) · [mond](https://github.com/rooootdev/mond) · [3105](https://github.com/NightVibes33/3105) · [ByeTunes](https://github.com/EduAlexxis/ByeTunes)
 
 <br />
 
 <a href="https://giphy.com/gifs/pokemon-oKXaUOOwStqnDddLnA">
-<img src="https://media.giphy.com/media/oKXaUOOwStqnDddLnA/giphy.gif" width="280" alt="Official Pokemon Gengar animation" />
+<img src="https://media.giphy.com/media/oKXaUOOwStqnDddLnA/giphy.gif" width="260" alt="Official Pokemon Gengar animation" />
 </a>
 
 <br />
 
-**FILZA 27 // GHOST MODE**
+# ✦ 𖤐 FILZA 27 // GHOST MODE 𖤐 ✦
 
-<sub>modern iOS file browsing with a little too much Gengar energy 👻</sub>
+<sub>modern iOS file browsing with way too much Gengar energy 👻</sub>
 
 </div>
