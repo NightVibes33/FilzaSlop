@@ -6,8 +6,8 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: verify-mond-2.1-${{ github.sha }}
-  cancel-in-progress: false
+  group: verify-mond-2.1-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   mond-2-1:
@@ -75,11 +75,13 @@ jobs:
           test "$(lipo -archs "$DYLIB")" = "arm64"
           otool -L "$DYLIB" | grep -F '@rpath/Mond2Embedded.dylib'
           nm "$DYLIB" | xcrun swift-demangle > .theos/Mond2Embedded.symbols
+          grep -Fq 'Mond2Embedded.mond' .theos/Mond2Embedded.symbols
           grep -Fq 'Mond2Embedded.ContentView' .theos/Mond2Embedded.symbols
           grep -Fq 'Mond2Embedded.SettingsView' .theos/Mond2Embedded.symbols
           grep -Fq 'Mond2Embedded.TendiesView' .theos/Mond2Embedded.symbols
           grep -Fq 'Mond2Embedded.SantanderView' .theos/Mond2Embedded.symbols
           grep -aFq 'exact upstream mond 2.1 runtime configured commit=500d76082f0ca021ddd591c05d129ebbc26c20df' "$DYLIB"
+          ! nm "$DYLIB" | grep -Eq '[[:space:]]_main$'
           test -z "$(git -C "$MOND_TREE" status --porcelain)"
           shasum -a 256 "$DYLIB" | tee .theos/MOND-2.1-SHA256.txt
 
