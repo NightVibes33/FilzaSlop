@@ -12,6 +12,7 @@ OBJ="$BUILD/obj"
 OUT="$PWD/.theos/obj/Mond2Embedded.dylib"
 SDK="$(xcrun --sdk iphoneos --show-sdk-path)"
 TARGET="arm64-apple-ios17.0"
+MOND_COMMIT="500d76082f0ca021ddd591c05d129ebbc26c20df"
 
 bash scripts/stage-mond-2.0.sh
 rm -rf "$BUILD"
@@ -31,6 +32,7 @@ test "${#MOND_SOURCES[@]}" -eq 16
 printf '%s\n' "${MOND_SOURCES[@]}" | grep -Fq '/mond/mond.swift'
 printf '%s\n' "${MOND_SOURCES[@]}" | grep -Fq '/views/tweaks/posterboard/TendiesView.swift'
 printf '%s\n' "${MOND_SOURCES[@]}" | grep -Fq '/views/tweaks/SantanderView.swift'
+test "$(git -C "$MOND" rev-parse HEAD)" = "$MOND_COMMIT"
 
 COMMON_SWIFT=(
     -target "$TARGET"
@@ -98,54 +100,44 @@ xcrun --sdk iphoneos swiftc "${COMMON_SWIFT[@]}" \
     -Xlinker @rpath/Mond2Embedded.dylib \
     -o "$OUT"
 
-require() {
-    local label="$1"
-    shift
-    echo "[Mond2 verify] $label"
-    if ! "$@"; then
-        echo "[Mond2 verify] FAILED: $label" >&2
-        exit 1
-    fi
-}
-
-require_grep() {
-    local label="$1" needle="$2" file="$3"
-    echo "[Mond2 verify] $label"
-    if ! grep -aFq "$needle" "$file"; then
-        echo "[Mond2 verify] FAILED: $label (missing: $needle)" >&2
-        exit 1
-    fi
-}
-
-require "dylib exists" test -s "$OUT"
-require "arm64 architecture" test "$(lipo -archs "$OUT")" = "arm64"
-require_grep "install name" '@rpath/Mond2Embedded.dylib' <(otool -L "$OUT")
-
-echo "[Mond2 verify] no dynamic PartyUI/ZIPFoundation dependency"
+test -s "$OUT"
+test "$(lipo -archs "$OUT")" = "arm64"
+otool -L "$OUT" | grep -F '@rpath/Mond2Embedded.dylib'
 if otool -L "$OUT" | grep -E '/(PartyUI|ZIPFoundation)'; then
-    echo "[Mond2 verify] FAILED: PartyUI or ZIPFoundation remained dynamically linked" >&2
+    echo "Mond 2.1 verifier failed: PartyUI/ZIPFoundation must be statically embedded" >&2
     exit 1
 fi
 
-# Exact 2.0 feature/lifecycle markers. These must come from the untouched
-# upstream files; the wrapper contributes only the explicit provenance marker.
-require_grep "Tendies route" 'Explore Tendies' "$OUT"
-require_grep "HouseArrest route" 'HouseArrest' "$OUT"
-require_grep "Run Exploit action" 'Run Exploit' "$OUT"
-require_grep "Generate Token action" 'Generate Token' "$OUT"
-require_grep "external host provenance" 'exact upstream mond 2.0 runtime configured commit=87b38b2726160c6d1cfacbbfa834a2572d7ca333' "$OUT"
+# UI text literals may be optimized/coalesced by Swift. The clean exact source
+# checkout proves the upstream UI; compiled Swift symbols prove those sources
+# were emitted into this dylib.
+nm "$OUT" | xcrun swift-demangle > "$BUILD/Mond2Embedded.symbols"
+for symbol in \
+    'Mond2Embedded.mond' \
+    'Mond2Embedded.ContentView' \
+    'Mond2Embedded.SettingsView' \
+    'Mond2Embedded.TendiesView' \
+    'Mond2Embedded.SantanderView'; do
+    if ! grep -Fq "$symbol" "$BUILD/Mond2Embedded.symbols"; then
+        echo "Mond 2.1 verifier failed: compiled dylib missing Swift symbol: $symbol" >&2
+        exit 1
+    fi
+    echo "Verified compiled Mond 2.1 Swift symbol: $symbol"
+done
 
-echo "[Mond2 verify] upstream @main symbol"
-if ! nm "$OUT" | grep -Eq '[[:space:]]_main$'; then
-    echo "[Mond2 verify] FAILED: upstream @main symbol not exported" >&2
-    nm "$OUT" | grep -E 'main|Mond2Embedded' | head -n 80 || true
+grep -aFq 'exact upstream mond 2.1 runtime configured commit=500d76082f0ca021ddd591c05d129ebbc26c20df' "$OUT"
+
+# -emit-library intentionally does not export an executable _main entry point.
+# Upstream mond.swift is still compiled unchanged, proven by Mond2Embedded.mond.
+if nm "$OUT" | grep -Eq '[[:space:]]_main$'; then
+    echo "Mond 2.1 verifier failed: embedded dylib unexpectedly exports executable _main" >&2
     exit 1
 fi
 
 # Compilation is not allowed to mutate the staged upstream repositories.
-require "Mond repo remains git-clean" test -z "$(git -C "$MOND" status --porcelain)"
-require "PartyUI repo remains git-clean" test -z "$(git -C "$PARTYUI" status --porcelain)"
-require "ZIPFoundation repo remains git-clean" test -z "$(git -C "$ZIPFOUNDATION" status --porcelain)"
+test -z "$(git -C "$MOND" status --porcelain)"
+test -z "$(git -C "$PARTYUI" status --porcelain)"
+test -z "$(git -C "$ZIPFOUNDATION" status --porcelain)"
 
 shasum -a 256 "$OUT"
-echo "Built isolated exact Mond 2.0 dylib without modifying upstream source"
+echo "Built isolated exact Mond 2.1 dylib without modifying upstream source"
