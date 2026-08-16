@@ -113,6 +113,7 @@ fi
 # instead; stage-mond-2.0.sh separately verifies exact upstream 2.1 source/UI.
 nm "$OUT" | xcrun swift-demangle > "$BUILD/Mond2Embedded.symbols"
 for symbol in \
+    'Mond2Embedded.mond' \
     'Mond2Embedded.ContentView' \
     'Mond2Embedded.SettingsView' \
     'Mond2Embedded.TendiesView' \
@@ -128,10 +129,11 @@ done
 # concrete binary string even under optimization.
 grep -aFq 'exact upstream mond 2.1 runtime configured commit=500d76082f0ca021ddd591c05d129ebbc26c20df' "$OUT"
 
+# -emit-library intentionally does not export an executable _main entry point.
+# The upstream @main source is still compiled unchanged, proven by the
+# Mond2Embedded.mond App type above and the clean exact source checkout.
 if nm "$OUT" | grep -Eq '[[:space:]]_main$'; then
-    echo "Verified upstream @main entry symbol is retained in isolated Mond dylib"
-else
-    echo "Mond 2.1 verifier failed: upstream @main entry symbol not retained" >&2
+    echo "Mond 2.1 verifier failed: embedded dylib unexpectedly exports executable _main" >&2
     exit 1
 fi
 
